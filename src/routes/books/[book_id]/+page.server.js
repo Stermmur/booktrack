@@ -1,17 +1,53 @@
-import db from "$lib/db.js";
-import { redirect } from "@sveltejs/kit";
+import { getBooks } from "$lib/db.js";
+import { ObjectId } from "mongodb";
+import { error, redirect } from "@sveltejs/kit";
 
+/** @type {import('./$types').PageServerLoad} */
 export async function load({ params }) {
-  return {
-    book: await db.getBook(params.book_id),
-  };
+    const id = params.book_id;
+
+    if (!id || !ObjectId.isValid(id)) {
+        throw error(400, "Invalid Book ID");
+    }
+
+    try {
+        const collection = await getBooks();
+        const book = await collection.findOne({ _id: new ObjectId(id) });
+
+        if (!book) {
+            throw error(404, "Book not found");
+        }
+
+        return {
+            book: {
+                ...book,
+                _id: book._id.toString()
+            }
+        };
+    } catch (err) {
+        console.error("Error loading book:", err);
+        throw error(500, "Internal Server Error");
+    }
 }
 
+/** @type {import('./$types').Actions} */
 export const actions = {
-  delete: async ({ request }) => {
-    const data = await request.formData();
+    delete: async ({ request }) => {
+        const data = await request.formData();
+        const id = data.get("id");
 
-    await db.deleteBook(data.get("id"));
-    redirect(303, "/books");
-  },
+        if (!id || !ObjectId.isValid(id)) {
+            return { success: false, message: "Invalid ID" };
+        }
+
+        try {
+            const collection = await getBooks();
+            await collection.deleteOne({ _id: new ObjectId(id) });
+        } catch (err) {
+            console.error("Delete Error:", err);
+            return { success: false, message: "Could not delete book." };
+        }
+
+        throw redirect(303, "/?deleted=true");
+    }
 };
