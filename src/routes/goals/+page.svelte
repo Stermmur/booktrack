@@ -195,11 +195,7 @@
                 {:else}
                     <div class="d-flex flex-wrap gap-2">
                         {#each Array(Math.max(0, Number(goal.target_count) || 0)) as _, i}
-                            <div
-                                class="circle {i < Number(goal.current_count)
-                                    ? 'filled'
-                                    : 'empty'}"
-                            ></div>
+                            <div class="circle {i < Number(goal.current_count) ? 'filled' : 'empty'}"></div>
                         {/each}
                     </div>
                 {/if}
