@@ -4,7 +4,7 @@ export async function load() {
     try {
         const collection = await getBooks();
         const booksFromDB = await collection.find({ status: "read" }).toArray();
-        console.log("Found read books in DB", booksFromDB);
+        console.log("Found read books in DB");
 
         const serializedBooks = booksFromDB.map(book => ({
             ...book,

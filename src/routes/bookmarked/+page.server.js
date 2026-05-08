@@ -4,7 +4,7 @@ export async function load() {
     try {
         const collection = await getBooks();
         const booksFromDB = await collection.find({ status: "bookmarked" }).toArray();
-        console.log("Found bookmarked books in DB", booksFromDB); 
+        console.log("Found bookmarked books in DB"); 
 
         const serializedBooks = booksFromDB.map(book => ({
             ...book,
