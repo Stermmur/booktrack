@@ -15,9 +15,9 @@
             if (!finishing_date) {
                 const date = new Date();
                 const day = String(date.getDate()).padStart(2, '0');
-                const month = date.toLocaleString('en-US', { month: 'long' });
+                const month = String(date.getMonth() + 1).padStart(2, '0'); // Monat als Zahl (01-12)
                 const year = date.getFullYear();
-                finishing_Date = `${day}. ${month} ${year}`;
+                finishing_date = `${year}-${month}-${day}`; // Format YYYY-MM-DD für Datepicker
             }
         }
     });
@@ -61,7 +61,7 @@
         
         <div class="mb-2">
             <label class="form-label text-secondary mb-0" for="released">Released:</label>
-            <input id="released" name="released" type="text" class="form-control">
+            <input id="released" name="released" type="date" class="form-control">
         </div>
         
         <div class="mb-2">
@@ -81,7 +81,7 @@
         
         <div class="mb-2">
             <label class="form-label text-secondary mb-0" for="finishing_date">Finishing Date:</label>
-            <input id="finishing_date" name="finishing_date" type="text" class="form-control" bind:value={finishing_date}>
+            <input id="finishing_date" name="finishing_date" type="date" class="form-control" bind:value={finishing_date}>
         </div>
 
         {#snippet actions()}
