@@ -54,11 +54,6 @@ export const actions = {
             return { success: false };
         }
 
-        throw redirect(303, "/goals");
+        throw redirect(303, "/goals"); 
     }
 };
-try {
-            throw redirect(303, "/goals?updated=true");
-        } catch (err) {
-            return { success: false, message: "Update not successful" };
-        }
