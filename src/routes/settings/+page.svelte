@@ -63,9 +63,12 @@
     </Modal>
 {/if}
 
-<div class="container mt-5 mb-5" style="max-width: 800px;">
-    <h1 class="display-5 fw-bold mb-4">Settings:</h1>
+<div>
+    <br>
+    <h1 class="fw-bold display-5 mb-4 text-center text-lg-start text-decoration-none">Settings:</h1>
+</div>
 
+<div class="container mt-5 mb-5" style="max-width: 800px;">
     {#if form?.success}
         <div class="alert alert-success text-center fw-bold shadow-sm mb-4" style="border-radius: 15px;">
             {form.message}

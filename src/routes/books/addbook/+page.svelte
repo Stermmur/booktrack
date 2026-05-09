@@ -34,8 +34,13 @@
     </div>
 {/if}
 
+<div>
+    <br>
+    <h1 class="fw-bold display-5 mb-0 text-center text-lg-start text-decoration-none">New Book:</h1>
+</div>
+
 <form method="POST" action="?/create" enctype="multipart/form-data">
-    <BookLayout title="New Book:" bind:rating={rating} readonly={false}>
+    <BookLayout bind:rating={rating} readonly={false}>
         <input type="hidden" name="rating" value={rating} />
 
         <div class="mb-2">
@@ -48,7 +53,7 @@
             <input id="author" name="author" type="text" class="form-control fw-bold">
         </div>
         
-        <!-- Genre Dropdown -->
+
         <div class="mb-2">
             <label class="form-label text-secondary mb-0" for="genre">Genre:</label>
             <select id="genre" name="genre" class="form-control" required>

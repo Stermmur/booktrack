@@ -7,24 +7,21 @@ export async function load({ locals }) {
 
     try {
         const collection = await getBooks();
-        const currentBook = await collection.findOne({ 
+        
+        const currentBooksFromDB = await collection.find({ 
             userId: locals.user.id,
             status: "reading" 
-        });
+        }).toArray();
 
-        if (!currentBook) {
-            return { book: null };
-        }
+        const serializedBooks = currentBooksFromDB.map(book => ({
+            ...book,
+            _id: book._id.toString()
+        }));
 
-        return {
-            book: {
-                ...currentBook,
-                _id: currentBook._id.toString()
-            }
-        };
+        return { books: serializedBooks };
     } catch (error) {
-        console.error("Error loading current book", error);
-        return { book: null };
+        console.error("Error loading current books", error);
+        return { books: [] };
     }
 }
 

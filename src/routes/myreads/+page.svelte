@@ -5,7 +5,7 @@
 
 <div>
     <br>
-    <h1 class="fw-bold display-5 mb-4 text-center text-lg-start text-decoration-none">Book Archive</h1>
+    <h1 class="fw-bold display-5 mb-4 text-center text-lg-start text-decoration-none">Book Archive:</h1>
 </div>
 
 <BookCard books={data.books} />

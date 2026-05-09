@@ -92,6 +92,11 @@
     </Modal>
 {/if}
 
+  <div>
+        <br>
+        <h1  class="fw-bold display-5 mb-4 text-center text-lg-start text-decoration-none">My Goals:</h1>
+    </div>
+    
 <div class="container mt-5">
     {#if isSaved}
         <div class="alert alert-success text-center fw-bold mt-3 mx-auto shadow-sm" style="max-width: 500px; border-radius: 50px;">
@@ -110,8 +115,6 @@
             Goal successfully deleted!
         </div>
     {/if}
-
-    <h1 class="display-5 fw-bold mb-5">My Goals:</h1>
 
     {#each goals as goal, index}
         <div class="goal-card position-relative">
