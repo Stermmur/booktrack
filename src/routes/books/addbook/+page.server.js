@@ -25,7 +25,6 @@ export const actions = {
             }
         }
 
-       
         let authorInput = data.get("author");
         let ratingInput = data.get("rating");
         let finishing_dateInput = data.get("finishing_date");

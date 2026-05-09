@@ -35,7 +35,6 @@ export const actions = {
 
         try {
             const collection = await getGoals();
-            // Ziel aus der Collection löschen
             await collection.deleteOne({ _id: new ObjectId(goalId) });
         } catch (err) {
             console.error("Error deleting goal:", err);

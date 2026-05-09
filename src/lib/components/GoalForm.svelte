@@ -1,6 +1,4 @@
 <script>
-    // Wir nehmen 'goal' als bindable (für Two-Way-Binding) 
-    // und 'actions' als Snippet für die Buttons entgegen
     let { goal = $bindable(), actions } = $props();
 </script>
 

@@ -1,13 +1,10 @@
 <script>
-    import { page } from '$app/state'; // Import für den Zugriff auf URL-Parameter
+    import { page } from '$app/state';
     let { data } = $props();
     let books = $derived(data.books);
-
-    // 1. Parameter aus der URL ableiten
     let isCreated = $derived(page.url.searchParams.get('success') === 'true');
     let isDeleted = $derived(page.url.searchParams.get('deleted') === 'true');
 
-    // 2. URL bereinigen, damit die Meldung beim Neuladen verschwindet
     $effect(() => {
         if (isCreated || isDeleted) {
             const url = new URL(window.location.href);
@@ -68,7 +65,6 @@
 </div>
 
 <style>
-    /* ... Dein bestehender Style bleibt exakt gleich ... */
     .carousel-container {
         width: 100vw;
         position: relative;

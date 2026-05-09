@@ -1,6 +1,7 @@
 <script>
     import { enhance } from "$app/forms";
     import { page } from "$app/state";
+    import Modal from "$lib/components/Modal.svelte";
 
     let { data } = $props();
     let goals = $derived(data.goals || []);
@@ -63,68 +64,49 @@
 </script>
 
 {#if showDeleteModal}
-    <div class="modal-overlay">
-        <div class="modal-box shadow-lg">
-            <h3 class="fw-bold mb-3">Delete Goal?</h3>
-            <p class="text-secondary mb-4">
-                Are you sure you want to permanently delete this goal?
-            </p>
-
-            <div class="d-flex justify-content-center gap-3">
-                <form
-                    method="POST"
-                    action="?/deleteGoal"
-                    use:enhance={() => {
-                        return async ({ update }) => {
-                            closeDeleteModal(); 
-                            await update(); 
-                        };
-                    }}
-                >
-                    <input type="hidden" name="goalId" value={activeGoalId} />
-                    <button
-                        type="submit"
-                        class="btn btn-danger px-4 py-2 fw-bold rounded-pill"
-                    >
-                        Yes, delete
-                    </button>
-                </form>
-
-                <button
-                    class="btn btn-outline-dark px-4 py-2 fw-bold rounded-pill"
-                    onclick={closeDeleteModal}
-                >
-                    No, cancel
+    <Modal
+        title="Delete Goal?"
+        description="Are you sure you want to permanently delete this goal?"
+    >
+        {#snippet actions()}
+            <form
+                method="POST"
+                action="?/deleteGoal"
+                use:enhance={() => {
+                    return async ({ update }) => {
+                        closeDeleteModal();
+                        await update(); 
+                    };
+                }}
+            >
+                <input type="hidden" name="goalId" value={activeGoalId} />
+                <button type="submit" class="btn btn-danger px-4 py-2 fw-bold rounded-pill">
+                    Yes, delete
                 </button>
-            </div>
-        </div>
-    </div>
+            </form>
+
+            <button class="btn btn-outline-dark px-4 py-2 fw-bold rounded-pill" onclick={closeDeleteModal}>
+                No, cancel
+            </button>
+        {/snippet}
+    </Modal>
 {/if}
 
 <div class="container mt-5">
     {#if isSaved}
-        <div
-            class="alert alert-success text-center fw-bold mt-3 mx-auto shadow-sm"
-            style="max-width: 500px; border-radius: 50px;"
-        >
+        <div class="alert alert-success text-center fw-bold mt-3 mx-auto shadow-sm" style="max-width: 500px; border-radius: 50px;">
             Goal successfully created!
         </div>
     {/if}
 
     {#if isUpdated}
-        <div
-            class="alert alert-info text-center fw-bold mt-3 mx-auto shadow-sm"
-            style="max-width: 500px; border-radius: 50px;"
-        >
+        <div class="alert alert-info text-center fw-bold mt-3 mx-auto shadow-sm" style="max-width: 500px; border-radius: 50px;">
             Goal successfully updated!
         </div>
     {/if}
 
     {#if isDeleted}
-        <div
-            class="alert alert-warning text-center fw-bold mt-3 mx-auto shadow-sm"
-            style="max-width: 500px; border-radius: 50px;"
-        >
+        <div class="alert alert-warning text-center fw-bold mt-3 mx-auto shadow-sm" style="max-width: 500px; border-radius: 50px;">
             Goal successfully deleted!
         </div>
     {/if}
@@ -139,17 +121,8 @@
                 aria-label="Delete goal"
                 onclick={() => openDeleteModal(goal._id)}
             >
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    fill="currentColor"
-                    class="bi bi-trash3"
-                    viewBox="0 0 16 16"
-                >
-                    <path
-                        d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"
-                    />
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                    <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5" />
                 </svg>
             </button>
 
@@ -174,22 +147,14 @@
 
             <div class="mb-4">
                 <p class="text-secondary mb-2">
-                    Book-Count: <span class="text-dark fw-bold"
-                        >({goal.current_count} / {goal.target_count})</span
-                    >
+                    Book-Count: <span class="text-dark fw-bold">({goal.current_count} / {goal.target_count})</span>
                 </p>
 
                 {#if goal.type === "Progress Bar"}
-                    <div
-                        class="progress mt-2"
-                        style="height: 25px; border-radius: 20px;"
-                    >
+                    <div class="progress mt-2" style="height: 25px; border-radius: 20px;">
                         <div
                             class="progress-bar bg-dark"
-                            style="width: {getPercentage(
-                                goal.current_count,
-                                goal.target_count,
-                            )}%"
+                            style="width: {getPercentage(goal.current_count, goal.target_count)}%"
                         ></div>
                     </div>
                 {:else}
@@ -201,19 +166,13 @@
                 {/if}
             </div>
 
-            <a
-                href="/goals/editgoal?id={goal._id}"
-                class="btn btn-light border px-4 py-1 fw-bold rounded-pill text-secondary shadow-sm"
-            >
+            <a href="/goals/editgoal?id={goal._id}" class="btn btn-light border px-4 py-1 fw-bold rounded-pill text-secondary shadow-sm">
                 Edit Goal
             </a>
         </div>
 
         {#if index < goals.length - 1}
-            <hr
-                class="my-5"
-                style="border-color: #e0e0e0; border-width: 2px;"
-            />
+            <hr class="my-5" style="border-color: #e0e0e0; border-width: 2px;" />
         {/if}
     {:else}
         <p class="text-secondary fs-5">You haven't set any goals yet.</p>
@@ -257,26 +216,5 @@
     .btn-delete-icon:hover {
         background-color: #f8d7da;
         color: #a71d2a;
-    }
-    .modal-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.4);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-        backdrop-filter: blur(4px);
-    }
-    .modal-box {
-        background: white;
-        padding: 2.5rem;
-        border-radius: 20px;
-        max-width: 400px;
-        width: 90%;
-        text-align: center;
     }
 </style>

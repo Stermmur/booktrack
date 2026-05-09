@@ -26,6 +26,6 @@ export const actions = {
         } catch (err) {
             return { success: false };
         }
-        throw redirect(303, "/?deleted=true"); // Korrekt: throw redirect
+        throw redirect(303, "/?deleted=true");
     }
 };
