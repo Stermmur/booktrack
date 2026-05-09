@@ -7,14 +7,22 @@
     let book = $derived(data.book);
 
     const genres = [
-        "Romance",
-        "Thriller/Horror",
-        "Fantasy",
-        "Non-Fiction",
         "Biography",
+        "Children's",
+        "Classics",
+        "Crime",
+        "Fantasy",
+        "Fiction",
+        "History",
         "Literary Fiction",
-        "YA",
+        "Manga",
+        "Non-Fiction",
+        "Poetry",
+        "Psychology",
+        "Romance",
         "Sci-Fi",
+        "Thriller/Horror",
+        "YA",
     ];
 
     $effect(() => {
