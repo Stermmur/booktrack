@@ -45,11 +45,16 @@
     }
 </script>
 
+<div>
+    <br>
+    <h1 class="fw-bold display-5 mb-0 text-center text-lg-start text-decoration-none">Edit Book:</h1>
+</div>
+
 <form method="POST" use:enhance>
     <input type="hidden" name="bookId" value={book._id} />
     <input type="hidden" name="rating" value={book.rating} />
 
-    <BookLayout title="Edit Book:" bind:rating={book.rating} readonly={false}>
+    <BookLayout bind:rating={book.rating} readonly={false}>
         <div class="mb-2">
             <label class="form-label fw-bold mb-0 text-decoration-none" for="title">Title</label>
             <input id="title" name="title" type="text" class="form-control fw-bold" bind:value={book.title} />

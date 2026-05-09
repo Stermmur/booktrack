@@ -38,7 +38,7 @@ export const actions = {
             genre: data.get("genre"),
             status: data.get("status"),
             author: (!authorInput || authorInput.trim() === "") ? "Unknown Author" : authorInput,
-            released: data.get("released") || "",
+            release_date: data.get("release_date") || "",
             notes: data.get("notes") || "",
             finishing_date: (!finishing_dateInput || finishing_dateInput.trim() === "") ? null : finishing_dateInput,
             rating: (!ratingInput || ratingInput === "0") ? null : Number(ratingInput),

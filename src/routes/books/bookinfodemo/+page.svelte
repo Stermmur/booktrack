@@ -19,10 +19,32 @@
     function openDeleteModal() {
         showDeleteModal = true;
     }
+    
     function closeDeleteModal() {
         showDeleteModal = false;
     }
+
+    function formatNiceDate(dateString) {
+        if (!dateString || dateString === "Open" || dateString === "-") {
+            return dateString;
+        }
+        
+        const date = new Date(dateString);
+        
+        if (isNaN(date)) return dateString; 
+
+        return date.toLocaleDateString("en-GB", {
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        });
+    }
 </script>
+
+<div>
+    <br>
+    <h1 class="fw-bold display-5 mb-0 text-center text-lg-start text-decoration-none">Book Details:</h1>
+</div>
 
 <div class="container mt-3">
     {#if isUpdated}
@@ -34,7 +56,7 @@
 
 {#if showDeleteModal}
     <Modal 
-        title="Delete Book?" 
+        title="Delete Book?"
         description="Are you sure you want to permanently delete this book?"
     >
         {#snippet actions()}
@@ -47,7 +69,7 @@
     </Modal>
 {/if}
 
-<BookLayout title="Book Details:" bind:rating={book.rating}>
+<BookLayout bind:rating={book.rating}>
     <h2 class="fw-bold mb-2 text-decoration-none">Title: {book.title}</h2>
     <h3 class="fw-bold mb-3 text-decoration-none">
         Author: {book.author || "Unknown author"}
@@ -55,9 +77,11 @@
     <p class="text-secondary fs-6 mb-1 text-decoration-none">
         Genre: {book.genre}
     </p>
+    
     <p class="text-secondary fs-6 mb-3 text-decoration-none">
-        Released: {book.release_date || "-"}
+        Released: {formatNiceDate(book.release_date || "-")}
     </p>
+    
     <p class="text-secondary fs-6 mb-0 text-decoration-none">Notes:</p>
     <p class="text-secondary fs-6 mb-3 text-decoration-none" style="line-height: 1.5;">
         {book.notes || "No notes added."}
@@ -65,8 +89,9 @@
     <p class="text-secondary fs-6 mb-1 text-decoration-none">
         Status: {book.status || "-"}
     </p>
+    
     <p class="text-secondary fs-6 mb-3 text-decoration-none">
-        Finishing Date: {book.finishing_date || "Open"}
+        Finishing Date: {formatNiceDate(book.finishing_date || "Open")}
     </p>
 
     {#snippet actions()}

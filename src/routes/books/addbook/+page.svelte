@@ -65,8 +65,8 @@
         </div>
         
         <div class="mb-2">
-            <label class="form-label text-secondary mb-0" for="released">Released:</label>
-            <input id="released" name="released" type="date" class="form-control">
+            <label class="form-label text-secondary mb-0" for="release_date">Released:</label>
+            <input id="release_date" name="release_date" type="date" class="form-control">
         </div>
         
         <div class="mb-2">

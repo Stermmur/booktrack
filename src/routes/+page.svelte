@@ -322,8 +322,8 @@
     </div>
 {/if}
 
-<div class="container text-center mt-5 mb-4">
-    <p class="fw-bold fs-5 text-dark mb-1">
+<div class="container text-center mt-5 mb-5">
+    <p class="fw-bold fs-5 text-dark mb-0">
         Your personal space to track what you read, what you want to read, and
         everything in between :)
     </p>

@@ -16,12 +16,6 @@
 </script>
 
 <div class="container page-wrapper">
-    <h1
-        class="fw-bold display-5 mb-4 text-center text-lg-start text-decoration-none"
-    >
-        {title}
-    </h1>
-
     <div class="row gx-5 align-items-center">
         <div
             class="col-lg-6 mb-3 mb-lg-0 d-flex flex-column justify-content-center"

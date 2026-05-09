@@ -7,7 +7,6 @@ export async function load({ locals }) {
 
     try {
         const collection = await getGoals();
-        // Lade nur Goals dieses Users
         const goalsFromDB = await collection.find({ userId: locals.user.id }).toArray();
         
         const serializedGoals = goalsFromDB.map(goal => ({

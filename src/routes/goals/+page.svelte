@@ -92,7 +92,7 @@
     </Modal>
 {/if}
 
-  <div>
+    <div>
         <br>
         <h1  class="fw-bold display-5 mb-4 text-center text-lg-start text-decoration-none">My Goals:</h1>
     </div>

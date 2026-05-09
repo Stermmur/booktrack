@@ -5,9 +5,12 @@
     let goal = $state({ title: '', type: 'Circle Checkbox', current_count: 0, target_count: 20, due_date: '', notes: '' });
 </script>
 
-<div class="container mt-5">
-    <h1 class="fw-bold mb-5">New Goal:</h1>
+<div>
+    <br>
+    <h1 class="fw-bold display-5 mb-4 text-center text-lg-start text-decoration-none">New Goal:</h1>
+</div>
 
+<div class="container mt-5">
     <form method="POST" use:enhance class="row g-4">
         <GoalForm bind:goal>
             {#snippet actions()}

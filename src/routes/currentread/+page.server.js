@@ -7,7 +7,6 @@ export async function load({ locals }) {
 
     try {
         const collection = await getBooks();
-        
         const currentBooksFromDB = await collection.find({ 
             userId: locals.user.id,
             status: "reading" 

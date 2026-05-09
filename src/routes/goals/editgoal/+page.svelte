@@ -6,9 +6,12 @@
     let goal = $derived(data.goal);
 </script>
 
-<div class="container mt-5">
-    <h1 class="fw-bold mb-5">Edit Goal:</h1>
+<div>
+    <br>
+    <h1 class="fw-bold display-5 mb-4 text-center text-lg-start text-decoration-none">Edit Goal:</h1>
+</div>
 
+<div class="container mt-5">
     <form method="POST" use:enhance class="row g-4">
         <input type="hidden" name="goalId" value={goal._id}>
 
