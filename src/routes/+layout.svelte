@@ -26,14 +26,14 @@
                     <a
                         class="nav-link active"
                         aria-current="page"
-                        href="/currentread">Current Read</a
+                        href="/bookmarked">Bookmarked</a
                     >
                 </li>
                 <li class="nav-item">
                     <a
                         class="nav-link active"
                         aria-current="page"
-                        href="/bookmarked">Bookmarked</a
+                        href="/currentread">Current Read</a
                     >
                 </li>
                 <li class="nav-item">
