@@ -136,21 +136,6 @@
         background: transparent;
     }
 
-    .book-cover {
-        width: 100%; 
-        max-width: 160px; 
-        aspect-ratio: 2 / 3;
-        object-fit: cover;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        margin-bottom: 1rem;  
-        transition: transform 0.2s ease-in-out;
-    }
-
-    .book-cover:hover {
-        transform: scale(1.02);
-    }
-
     .book-title {
         font-weight: bold;
         text-decoration: underline;

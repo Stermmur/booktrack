@@ -27,7 +27,7 @@ export async function load({ url, locals }) {
 }
 
 export const actions = {
-    default: async ({ request, locals }) => {
+    default: async ({ request, locals, url }) => {
         if (!locals.user) return { success: false, message: "Not authenticated" };
 
         const data = await request.formData();
@@ -57,6 +57,12 @@ export const actions = {
             return { success: false, message: "Error saving changes" };
         }
 
-        throw redirect(303, `/books/bookinfodemo?id=${bookId}&updated=true`);
+        const returnUrl = url.searchParams.get('from');
+
+        if (returnUrl) {
+            throw redirect(303, `${returnUrl}?updated=true`);
+        } else {
+            throw redirect(303, `/books/bookinfodemo?id=${bookId}&updated=true`);
+        }
     }
 };

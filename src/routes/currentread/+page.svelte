@@ -49,7 +49,7 @@
 
         {#snippet actions()}
             <div class="d-flex gap-3">
-                <a href="/books/editbook?id={book._id}" class="btn btn-dark px-4 py-2 fw-bold text-decoration-none">
+                <a href="/books/editbook?id={book._id}&from=/currentread" class="btn btn-dark px-4 py-2 fw-bold text-decoration-none">
                     Edit
                 </a>
 
@@ -82,16 +82,6 @@
 {/if}
 
 <style>
-    .book-cover-large {
-        width: 100%;
-        max-width: 350px; 
-        height: auto;
-        aspect-ratio: 2 / 3; 
-        object-fit: cover;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
-        border-radius: 8px;
-    }
-
     @media (min-width: 992px) {
         .book-cover-large { height: clamp(300px, 65vh, 700px); width: auto; }
     }

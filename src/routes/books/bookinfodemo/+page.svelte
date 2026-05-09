@@ -82,16 +82,6 @@
 </BookLayout>
 
 <style>
-    .book-cover-large {
-        width: 100%;
-        max-width: 350px;
-        height: auto;
-        aspect-ratio: 2 / 3;
-        object-fit: cover;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        border-radius: 8px;
-    }
-    
     @media (min-width: 992px) {
         .book-cover-large {
             height: clamp(300px, 65vh, 700px);
