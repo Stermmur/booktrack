@@ -1,36 +1,71 @@
 <script>
     let { books = [] } = $props();
 
-    const genres = ["Romance", "Thriller/Horror", "Fantasy", "Non-Fiction", "Biography", "Literary Fiction", "YA", "Sci-Fi"];
-
+    const genres = [
+        "Biography",
+        "Children's",
+        "Classics",
+        "Crime",
+        "Fantasy",
+        "Fiction",
+        "History",
+        "Literary Fiction",
+        "Manga",
+        "Non-Fiction",
+        "Poetry",
+        "Psychology",
+        "Romance",
+        "Sci-Fi",
+        "Thriller/Horror",
+        "YA",
+    ];
     let currentSearchTerm = $state("");
-    let currentGenre = $state(""); 
+    let currentGenre = $state("");
     let filteredBooks = $derived(
-        books.filter(book => {
-            const titleToSearch = book.title ? book.title.toLowerCase() : "";
-            const matchesSearch = titleToSearch.includes(currentSearchTerm.toLowerCase());
-            const matchesGenre = currentGenre === "" || book.genre === currentGenre;
-            
-            return matchesSearch && matchesGenre;
-        }).sort((a, b) => {
-            const titleA = a.title || "";
-            const titleB = b.title || "";
-            return titleA.localeCompare(titleB);
-        })
+        books
+            .filter((book) => {
+                const titleToSearch = book.title
+                    ? book.title.toLowerCase()
+                    : "";
+                const matchesSearch = titleToSearch.includes(
+                    currentSearchTerm.toLowerCase(),
+                );
+                const matchesGenre =
+                    currentGenre === "" || book.genre === currentGenre;
+
+                return matchesSearch && matchesGenre;
+            })
+            .sort((a, b) => {
+                const titleA = a.title || "";
+                const titleB = b.title || "";
+                return titleA.localeCompare(titleB);
+            }),
     );
 </script>
 
 <div class="container my-5" style="max-width: 900px;">
-
     <div class="search-container">
-        <input type="text" bind:value={currentSearchTerm} class="form-control search-input" placeholder="Which book are you looking for?">
+        <input
+            type="text"
+            bind:value={currentSearchTerm}
+            class="form-control search-input"
+            placeholder="Which book are you looking for?"
+        />
     </div>
 
     <div class="mb-2">
-        <label class="form-label text-secondary mb-0 text-decoration-none" for="genre">Genre</label>
-        <select id="genre" name="genre" class="form-control" bind:value={currentGenre}>
+        <label
+            class="form-label text-secondary mb-0 text-decoration-none"
+            for="genre">Genre</label
+        >
+        <select
+            id="genre"
+            name="genre"
+            class="form-control"
+            bind:value={currentGenre}
+        >
             <option value="">All Genres</option>
-            
+
             {#each genres as genre}
                 <option value={genre}>{genre}</option>
             {/each}
@@ -43,27 +78,41 @@
 
     <div class="row g-5">
         {#if filteredBooks.length === 0}
-            <div class="col-12 text-center text-muted mt-5">No books found!</div>
+            <div class="col-12 text-center text-muted mt-5">
+                No books found!
+            </div>
         {:else}
             {#each filteredBooks as book}
                 <div class="col-12 col-md-6">
                     <div class="book-card">
-                        
                         <a href="/books/bookinfodemo?id={book._id}">
-                            <img src={book.cover_url} alt={book.title} class="book-cover">
+                            <img
+                                src={book.cover_url}
+                                alt={book.title}
+                                class="book-cover"
+                            />
                         </a>
-                        
-                        <div class="d-flex justify-content-between align-items-start mt-2">
+
+                        <div
+                            class="d-flex justify-content-between align-items-start mt-2"
+                        >
                             <div>
                                 <h3 class="book-title">
-                                    <a href="/books/bookinfodemo?id={book._id}" class="text-dark">
+                                    <a
+                                        href="/books/bookinfodemo?id={book._id}"
+                                        class="text-dark"
+                                    >
                                         {book.title}
                                     </a>
                                 </h3>
-                                <div class="book-author">{book.author || 'Unknown author'}</div>
+                                <div class="book-author">
+                                    {book.author || "Unknown author"}
+                                </div>
                             </div>
-                            
-                            <div class="book-meta d-flex flex-column align-items-end">
+
+                            <div
+                                class="book-meta d-flex flex-column align-items-end"
+                            >
                                 <span>{book.genre}</span>
                                 {#if book.rating}
                                     <div class="d-flex align-items-center mt-1">
@@ -73,13 +122,11 @@
                                 {/if}
                             </div>
                         </div>
-
                     </div>
                 </div>
             {/each}
         {/if}
     </div>
-
 </div>
 
 <style>
