@@ -1,11 +1,15 @@
 import { createBook } from "$lib/db.js";
 import fs from 'fs';
 import path from 'path';
+import { redirect } from "@sveltejs/kit";
 
 export const actions = {
-    create: async ({ request }) => {
+    create: async ({ request, locals }) => {
+        if (!locals.user) {
+            return { success: false, error: "Not authenticated" };
+        }
+
         const data = await request.formData();
-        
         const coverFile = data.get("bookcover");
         let coverUrl = "/coverplaceholder/gemini_generated_spaceholder.png"; 
 
@@ -38,17 +42,17 @@ export const actions = {
             notes: data.get("notes") || "",
             finishing_date: (!finishing_dateInput || finishing_dateInput.trim() === "") ? null : finishing_dateInput,
             rating: (!ratingInput || ratingInput === "0") ? null : Number(ratingInput),
-            cover_url: coverUrl 
+            cover_url: coverUrl,
+            userId: locals.user.id 
         };
 
         try {
             await createBook(book); 
-            return { success: true };
-
         } catch (error) {
             console.error("Error saving book to Database:", error);
             return { success: false, error: "Error saving book to Database" };
         }
+
         throw redirect(303, '/?success=true');
     },
 };

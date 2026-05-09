@@ -52,7 +52,14 @@
                     <a
                         class="nav-link active"
                         aria-current="page"
-                        href="/books/addbook">+Add Book</a
+                        href="/books/addbook">Add Book</a
+                    >
+                </li>
+                <li class="nav-item">
+                    <a
+                        class="nav-link active"
+                        aria-current="page"
+                        href="/settings">Settings</a
                     >
                 </li>
             </ul>

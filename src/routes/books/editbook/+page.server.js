@@ -2,20 +2,17 @@ import { getBooks } from "$lib/db.js";
 import { ObjectId } from "mongodb";
 import { error, redirect } from "@sveltejs/kit";
 
-export async function load({ url }) {
-    const id = url.searchParams.get('id');
+export async function load({ url, locals }) {
+    if (!locals.user) throw redirect(303, '/');
 
-    if (!id) {
-        throw error(400, "No book ID found in the URL");
-    }
+    const id = url.searchParams.get('id');
+    if (!id) throw error(400, "No book ID found in the URL");
 
     try {
         const collection = await getBooks();
-        const book = await collection.findOne({ _id: new ObjectId(id) });
+        const book = await collection.findOne({ _id: new ObjectId(id), userId: locals.user.id });
 
-        if (!book) {
-            throw error(404, "Book not found");
-        }
+        if (!book) throw error(404, "Book not found or unauthorized");
 
         return {
             book: {
@@ -29,21 +26,19 @@ export async function load({ url }) {
     }
 }
 
-
 export const actions = {
-    default: async ({ request }) => {
+    default: async ({ request, locals }) => {
+        if (!locals.user) return { success: false, message: "Not authenticated" };
+
         const data = await request.formData();
         const bookId = data.get('bookId');
 
-        if (!bookId) {
-            return { success: false, message: "No book ID provided" };
-        }
+        if (!bookId) return { success: false, message: "No book ID provided" };
 
         try {
             const collection = await getBooks();
-
             await collection.updateOne(
-                { _id: new ObjectId(bookId) },
+                { _id: new ObjectId(bookId), userId: locals.user.id }, 
                 {
                     $set: {
                         title: data.get('title'),
@@ -57,7 +52,6 @@ export const actions = {
                     }
                 }
             );
-
         } catch (err) {
             console.error("Error saving changes:", err);
             return { success: false, message: "Error saving changes" };

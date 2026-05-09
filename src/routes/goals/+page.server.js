@@ -2,11 +2,14 @@ import { getGoals } from "$lib/db.js";
 import { ObjectId } from "mongodb";
 import { error, redirect } from "@sveltejs/kit";
 
-/** @type {import('./$types').PageServerLoad} */
-export async function load() {
+export async function load({ locals }) {
+    if (!locals.user) throw redirect(303, '/');
+
     try {
         const collection = await getGoals();
-        const goalsFromDB = await collection.find({}).toArray();
+        // Lade nur Goals dieses Users
+        const goalsFromDB = await collection.find({ userId: locals.user.id }).toArray();
+        
         const serializedGoals = goalsFromDB.map(goal => ({
             ...goal,
             _id: goal._id.toString(), 
@@ -14,30 +17,25 @@ export async function load() {
             current_count: Number(goal.current_count) || 0
         }));
 
-        return {
-            goals: serializedGoals
-        };
+        return { goals: serializedGoals };
     } catch (err) {
-        console.error("Error loading goals:", err);
         return { goals: [] };
     }
 }
 
-/** @type {import('./$types').Actions} */
 export const actions = {
-    deleteGoal: async ({ request }) => {
+    deleteGoal: async ({ request, locals }) => {
+        if (!locals.user) return { success: false };
+
         const data = await request.formData();
         const goalId = data.get('goalId'); 
 
-        if (!goalId || !ObjectId.isValid(goalId)) {
-            throw error(400, "Invalid Goal ID");
-        }
+        if (!goalId || !ObjectId.isValid(goalId)) throw error(400, "Invalid Goal ID");
 
         try {
             const collection = await getGoals();
-            await collection.deleteOne({ _id: new ObjectId(goalId) });
+            await collection.deleteOne({ _id: new ObjectId(goalId), userId: locals.user.id });
         } catch (err) {
-            console.error("Error deleting goal:", err);
             return { success: false, message: "Could not delete goal." };
         }
 
