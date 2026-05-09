@@ -19,6 +19,7 @@
         "Thriller/Horror",
         "YA",
     ];
+    
     let currentSearchTerm = $state("");
     let currentGenre = $state("");
     let filteredBooks = $derived(
