@@ -24,7 +24,6 @@
 
     <div class="search-container">
         <input type="text" bind:value={currentSearchTerm} class="form-control search-input" placeholder="Which book are you looking for?">
-        <span>⚙️</span>
     </div>
 
     <div class="mb-2">
