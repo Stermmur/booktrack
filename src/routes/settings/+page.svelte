@@ -86,7 +86,7 @@
             </div>
             
             <div class="profile-image-wrapper">
-                <img src="/src/lib/assets/gemini_generated_favicon.png" alt="User Icon" class="profile-avatar shadow-sm">
+                <img src="/favicon.png" alt="User Icon" class="profile-avatar shadow-sm">
             </div>
         </div>
     </div>
