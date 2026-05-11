@@ -22,19 +22,31 @@
     
     let currentSearchTerm = $state("");
     let currentGenre = $state("");
+    let currentRating = $state("");
+    
     let filteredBooks = $derived(
         books
             .filter((book) => {
-                const titleToSearch = book.title
-                    ? book.title.toLowerCase()
-                    : "";
-                const matchesSearch = titleToSearch.includes(
-                    currentSearchTerm.toLowerCase(),
-                );
-                const matchesGenre =
-                    currentGenre === "" || book.genre === currentGenre;
+                const searchTerm = currentSearchTerm.toLowerCase();
+                const titleToSearch = book.title ? book.title.toLowerCase() : "";
+                const authorToSearch = book.author ? book.author.toLowerCase() : "";
+                
+                const matchesSearch = 
+                    titleToSearch.includes(searchTerm) || 
+                    authorToSearch.includes(searchTerm);
+                    
+                const matchesGenre = currentGenre === "" || book.genre === currentGenre;
 
-                return matchesSearch && matchesGenre;
+                let matchesRating = true;
+                if (currentRating !== "") {
+                    if (currentRating === "0") {
+                        matchesRating = !book.rating || book.rating === 0;
+                    } else {
+                        matchesRating = book.rating === Number(currentRating);
+                    }
+                }
+
+                return matchesSearch && matchesGenre && matchesRating;
             })
             .sort((a, b) => {
                 const titleA = a.title || "";
@@ -50,31 +62,57 @@
             type="text"
             bind:value={currentSearchTerm}
             class="form-control search-input"
-            placeholder="Which book are you looking for?"
+            placeholder="Which book or author are you looking for?"
         />
+        <span>🔍︎</span>
     </div>
 
-    <div class="mb-2">
-        <label
-            class="form-label text-secondary mb-0 text-decoration-none"
-            for="genre">Genre</label
-        >
-        <select
-            id="genre"
-            name="genre"
-            class="form-control"
-            bind:value={currentGenre}
-        >
-            <option value="">All Genres</option>
+    <div class="row mb-2">
+        <div class="col-md-6 mb-3 mb-md-0">
+            <label
+                class="form-label text-secondary mb-0 text-decoration-none"
+                for="genre">Genre</label
+            >
+            <select
+                id="genre"
+                name="genre"
+                class="form-control"
+                bind:value={currentGenre}
+            >
+                <option value="">All Genres</option>
+                {#each genres as genre}
+                    <option value={genre}>{genre}</option>
+                {/each}
+            </select>
+        </div>
 
-            {#each genres as genre}
-                <option value={genre}>{genre}</option>
-            {/each}
-        </select>
+        <div class="col-md-6">
+            <label
+                class="form-label text-secondary mb-0 text-decoration-none"
+                for="rating">Rating</label
+            >
+            <select
+                id="rating"
+                name="rating"
+                class="form-control"
+                bind:value={currentRating}
+            >
+                <option value="">All Ratings</option>
+                <option value="5">5 Stars (★★★★★)</option>
+                <option value="4">4 Stars (★★★★☆)</option>
+                <option value="3">3 Stars (★★★☆☆)</option>
+                <option value="2">2 Stars (★★☆☆☆)</option>
+                <option value="1">1 Star (★☆☆☆☆)</option>
+                <option value="0">Unrated</option>
+            </select>
+        </div>
     </div>
 
     <div class="divider">
-        <span>{currentGenre === "" ? "All Genres" : currentGenre}</span>
+        <span>
+            {currentGenre === "" ? "All Genres" : currentGenre} 
+            {currentRating !== "" ? ` • ${currentRating === "0" ? "Unrated" : currentRating + " Stars"}` : ""}
+        </span>
     </div>
 
     <div class="row g-5">
