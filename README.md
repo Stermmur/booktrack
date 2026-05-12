@@ -65,7 +65,8 @@ Unternehmen, die Infrastruktur oder Schnittstellen bereitstellen (z. B. für Buc
 ## 2. Lösungsidee
 Beschreibt die Lösungsidee.
 - **Kernfunktionalität:** _[Workflows kurz nennen und optional illustrieren]_ 
---> Eine Web-Applikation, in der Nutzer Bücher hinzufügen und in Kategorien einteilen können (Current Read, Bookmarked & My Reads). --> Bücher werden primär als Bilder-Raster (Cover) mit Titel, Autor und Genre dargestellt. 
+--> Eine Web-Applikation, in der Nutzer Bücher hinzufügen und in Kategorien einteilen können (Current Read, Bookmarked & My Reads). 
+--> Bücher werden primär als Bilder-Raster (Cover) mit Titel, Autor und Genre dargestellt. 
 --> Nutzer können die Liste über eine Suchleiste sowie über Genre-Tags (Romance, Thriller, Fantasy etc.) durchsuchen.
 --> Es gibt eine Seite in der man Reading-Goals erfassen und nachverfolgen kann.
 

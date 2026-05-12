@@ -35,6 +35,21 @@ export const actions = {
 
         if (!bookId) return { success: false, message: "No book ID provided" };
 
+        const coverFile = data.get("bookcover");
+        let coverUrlUpdate = {}; 
+
+        if (coverFile && coverFile.size > 0 && coverFile.type.startsWith('image/')) {
+            try {
+                const arrayBuffer = await coverFile.arrayBuffer();
+                const buffer = Buffer.from(arrayBuffer);
+                const base64String = buffer.toString('base64');
+                const mimeType = coverFile.type; 
+                coverUrlUpdate.cover_url = `data:${mimeType};base64,${base64String}`;
+            } catch (err) {
+                console.error("Fehler bei der Bildumwandlung in Base64:", err);
+            }
+        }
+
         try {
             const collection = await getBooks();
             await collection.updateOne(
@@ -48,7 +63,8 @@ export const actions = {
                         notes: data.get('notes'),
                         finishing_date: data.get('finishing_date'),
                         rating: parseInt(data.get('rating')) || 0,
-                        status: data.get('status')
+                        status: data.get('status'),
+                        ...coverUrlUpdate 
                     }
                 }
             );

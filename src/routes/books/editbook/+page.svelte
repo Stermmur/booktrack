@@ -5,6 +5,7 @@
 
     let { data } = $props();
     let book = $derived(data.book);
+    let coverPreview = $state(null);
 
     const genres = [
         "Biography",
@@ -44,12 +45,17 @@
     function cancelEdit() {
         const urlParams = new URLSearchParams(window.location.search);
         const fromUrl = urlParams.get('from');
-        
+
         if (fromUrl) {
             goto(fromUrl);
         } else {
             goto(`/books/bookinfodemo?id=${book._id}`);
         }
+    }
+
+    function handleFileChange(event) {
+        const file = event.target.files[0];
+        if (file) coverPreview = URL.createObjectURL(file);
     }
 </script>
 
@@ -58,7 +64,7 @@
     <h1 class="fw-bold display-5 mb-0 text-center text-lg-start text-decoration-none">Edit Book:</h1>
 </div>
 
-<form method="POST" use:enhance>
+<form method="POST" use:enhance enctype="multipart/form-data">
     <input type="hidden" name="bookId" value={book._id} />
     <input type="hidden" name="rating" value={book.rating} />
 
@@ -119,7 +125,21 @@
         {/snippet}
 
         {#snippet cover()}
-            <img src={book.cover_url} alt="Cover Preview" class="book-cover-preview" />
+            <div class="d-flex flex-column align-items-center">
+                <img 
+                    src={coverPreview ? coverPreview : book.cover_url} 
+                    alt="Cover Preview" 
+                    class="book-cover-preview mb-3" 
+                />
+                
+                <input
+                    type="file"
+                    name="bookcover"
+                    accept="image/*"
+                    class="form-control form-control-sm"
+                    onchange={handleFileChange}
+                />
+            </div>
         {/snippet}
     </BookLayout>
 </form>
