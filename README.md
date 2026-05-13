@@ -36,7 +36,7 @@ Das Problem liegt somit nicht im Lesen selbst, sondern in der fehlenden Unterst�
 - **Ziele:** _[stichwortartig oder einige Sätze]_ 
 --> Entwicklung einer modernen und benutzerfreundlichen Web-Applikation als „digitales Bücherregal“ zur einfachen Verwaltung der persönlichen Bibliothek.
 --> Schaffung einer übersichtlichen und visuell ansprechenden Darstellung durch Buchcover zur besseren Wiedererkennung von Büchern.
---> Ermöglichung einer intuitiven und flexiblen Kategorisierung (z. B. nach Genre)
+--> Ermöglichung einer intuitiven und flexiblen Kategorisierung/Filterung (nach Titel, Autor, Genre und Rating)
 --> Unterstützung der Nutzer beim Behalten des Überblicks über gelesene und geplante Bücher.
 --> Förderung der Lesemotivation durch Funktionen wie Fortschrittsverfolgung.
 --> Bereitstellung einer privaten Nutzungserfahrung ohne sozialen Druck oder öffentliche Bewertungssysteme (im Gegensatz zu Plattformen wie Goodreads).
@@ -65,21 +65,22 @@ Unternehmen, die Infrastruktur oder Schnittstellen bereitstellen (z. B. für Buc
 ## 2. Lösungsidee
 Beschreibt die Lösungsidee.
 - **Kernfunktionalität:** _[Workflows kurz nennen und optional illustrieren]_ 
---> Eine Web-Applikation, in der Nutzer Bücher hinzufügen und in Kategorien einteilen können (Current Read, Bookmarked & My Reads). 
+--> Eine Web-Applikation, in der Nutzer Bücher hinzufügen, editieren, löschen und in Kategorien einteilen können (Current Read, Bookmarked & My Reads). 
+--> Jeder Nutzer hat seinen eigenen Account und kann somit seine persönliche "Library" pflegen.
 --> Bücher werden primär als Bilder-Raster (Cover) mit Titel, Autor und Genre dargestellt. 
---> Nutzer können die Liste über eine Suchleiste sowie über Genre-Tags (Romance, Thriller, Fantasy etc.) durchsuchen.
+--> Nutzer können die Liste über eine Suchleiste sowie über Genre-Tags(Romance, Thriller, Fantasy etc.) und Ratings durchsuchen.
 --> Es gibt eine Seite in der man Reading-Goals erfassen und nachverfolgen kann.
 
-User-Journey:
-1. Nutzer öffnet die Web-App
-2. Fügt ein neues Buch hinzu (Titel, Autor, Cover)
-3. Ordnet es einer Kategorie zu (z.B. „Current Read“)
-4. Sieht das Buch direkt in der entsprechenden Seite.
-5. Aktualisiert Fortschritt oder verschiebt es zu einem anderen Status (z.B. „My Reads“)
+User-Journey (ein exemplarischer Workflow):
+1. Nutzer öffnet die Web-App und loggt sich in sein Profil ein
+2. Fügt ein neues Buch hinzu via +Add Book Button (Required: Titel, Genre & Status. Optional: Cover, Autor, Rating, Release-Datum, Notizen und Abschluss-Datum).
+4. Sieht das Buch direkt in der entsprechend Katogerisierten Seite des Status (Bookmarked, Current Read oder My Reads).
+5. Aktualisiert Fortschritt, editiert die Buchinformationen oder verschiebt es zu einem anderen Status.
 
 - **Annahmen [Optional]:** _[welche Hypothesen werden geprüft?]_
 --> Nutzer bevorzugen eine visuelle Navigation (Bilder) gegenüber reinen Textlisten. 
 --> Eine aufgeräumte, minimalistische Oberfläche lenkt weniger ab und rückt die Bücher in den Fokus.
+--> Gamification-Elemente (wie das Füllen von Kreisen bei erreichten Zielen) steigern die Rückkehrrate (Retention) der Nutzer.
 
 - **Abgrenzung [Optional]:** _[Was gehört explizit nicht zum Umfang?]_
 Nicht zum Umfang dieses Projekts gehören: 
@@ -103,6 +104,7 @@ Analyse bestehender Lösungen (wie Goodreads oder analoge Bullet Journals):
 
 ### 3.2 Sketch
 - **Variantenüberblick:** _[kurz]_
+
 - **Skizzen:** _[Mehrere Varianten; Unterschiede kurz dokumentieren.]_
 
 ### 3.3 Decide
@@ -116,41 +118,112 @@ Analyse bestehender Lösungen (wie Goodreads oder analoge Bullet Journals):
 Beschreibt die Gestaltung und Interaktion.
 > **Hinweis:** Hier wird der **Prototyp** beschrieben, nicht das **Mockup**.
 - **Informationsarchitektur:** _[z. B. Seiten/Navigation: Konzept, nicht die technische Umsetzung]_
+
 - **User Interface Design:** _[wichtige Screens: Screenshots mit kurzen Erläuterungen]_  
+
 - **Designentscheidungen:** _[zentrale Entscheidungen und Begründungen]_
+
 
 #### 3.4.2. Umsetzung (Technik)
 Fasst die technische Realisierung zusammen.
 - **Technologie-Stack:** _[SvelteKit, Bibliotheken falls genutzt]_
-- **Tooling:** _[IDE/Erweiterungen, lokale/Cloud-Tools; den Einsatz von KI beschreiben Sie im Kapitel **KI-Deklaration**]_  
+--> Als Meta-Framework kommt SvelteKit zum Einsatz, welches sowohl das Frontend-Routing als auch die Backend-Schnittstellen bereitstellt. 
+--> Folgende Bibliotheken wurden verwendet:
+    - xxx
+    - xxx
+--> Für das Styling wird Bootstrap 5 über CDN eingebunden. 
+--> Als Datenbank dient MongoDB.
+
+- **Tooling:** _[IDE/Erweiterungen, lokale/Cloud-Tools; den Einsatz von KI beschreiben Sie im Kapitel **KI-Deklaration**]_ 
+ --> Entwickelt wurde mit Visual Studio Code, verwaltet über Git. --> Als lokaler Development-Server und Bundler diente Vite.
+ --> Das finale Hosting läuft über Netlify Serverless Functions.
+
 - **Struktur & Komponenten:** _[Seiten, Routen, State/Stores, wichtige Komponenten]_
+Seiten:
+
+Routen:
+
+State/Stores:
+Das State-Management im Frontend basiert komplett auf den modernsten Svelte 5 Runes ($state, $derived, $effect, $props). Dies ermöglichte eine sehr schlanke Reaktivität, beispielsweise für Suchfilter, das automatische Setzen von Enddaten oder das Rendern von UI-Snippets ({@render children()})
+
+Wichtige Komponenten:
+Die App nutzt stark wiederverwendbare UI-Komponenten im $lib/components-Ordner, um Code-Duplizierung zu vermeiden (z.B. BookCard.svelte für das Grid, BookLayout.svelte als Ansicht für Detailseiten und Formulare, GoalForm.svelte für die Zielerfassung) und Modal.svelte für die Pop-Up Fenster.
+
 - **Daten & Schnittstellen:** _[Wie werden Daten gespeichert, verwaltet, abgerufen?]_
+ Die Datenbankanbindung erfolgt extrem direkt und performant über den nativen mongodb-Node-Treiber in der zentralen Datei lib/db.js. 
+ --> SvelteKit Form Actions (?/create, ?/deleteBook, ?/finishBook) verarbeiten die Datenübermittlung vom Frontend ans Backend serverseitig. 
+ --> use:enhance wird im Frontend genutzt, um diese Requests nahtlos (ohne Page-Reload) auszuführen.
+
+
 - **Deployment:** _[URL]_  
+--> https://boooktrack.netlify.app/
+
 - **Besondere Entscheidungen:** _[z. B. Trade-offs, Vereinfachungen]_  
+???
 
 ### 3.5 Validate
 - **URL der getesteten Version** (separat deployt)
+
 - **Ziele der Prüfung:** _[welche Fragen sollen beantwortet werden?]_  
-- **Vorgehen:** _[moderiert/unmoderiert; remote/on-site]_  
-- **Stichprobe:** _[Mit wem wurde getestet? Profil; Anzahl]_  
+
+- **Vorgehen:** _[moderiert/unmoderiert; remote/on-site]_ 
+
+- **Stichprobe:** _[Mit wem wurde getestet? Profil; Anzahl]_ 
+
 - **Aufgaben/Szenarien:** _[Ausformulierte Testaufgaben]_  
-- **Kennzahlen & Beobachtungen:** _[z. B. Erfolgsquote, Zeitbedarf, qualitative Findings]_  
+
+- **Kennzahlen & Beobachtungen:** _[z. B. Erfolgsquote, Zeitbedarf, qualitative Findings]_ 
+
 - **Zusammenfassung der Resultate:** _[Wichtigste Erkenntnisse; 2-4 Sätze]_  
+
 - **Abgeleitete Verbesserungen:** _[Anforderungen, die als nächstes umgesetzt werden sollten, priorisiert, kurz begründet; falls Verbesserungen im Prototyp konkret umgesetzt wurden: In Kap. 4 dokumentieren]_  
+
 
 ## 4. Erweiterungen [Optional]
 Dokumentiert Erweiterungen über den Mindestumfang hinaus.
 > **Hinweis:** Jede Erweiterung ist separat nach dem folgenden Schema zu beschreiben.
 
-### _[4.x Kurzbeschreibung / Titel]_  
-- **Beschreibung & Nutzen:** _[Was wurde erweitert? Warum?]_  
-- **Wo umgesetzt:** _[Wie und wo wurde es gemacht? Frontend, Backend, Datenbank?]_  
-- **Referenz:** _[Wo wird die Erweiterung auch noch beschrieben, z.B. Screenshot oder Beschreibung in einem anderen Kapitel]_  
+### 4.1 Lokaler Bild-Upload für Buchcover  
+- **Beschreibung & Nutzen:** _[Was wurde erweitert? Warum?]_
+ Anstatt Nutzer zu zwingen, externe Bild-URLs für Buchcover im Internet suchen und kopieren zu müssen, bietet die App die Möglichkeit, direkt eigene Bilder (z.B. vom Smartphone oder PC) hochzuladen. Im Frontend gibt es dafür eine interaktive Vorschau, die über URL.createObjectURL sofort das gewählte Bild im Platzhalter anzeigt. Die Bilder werden nicht lokal sondern in der MongoDB gespeichert. Sofern kein Cover hinzugefügt wird gibt es ein Platzhalterbild namens "The Spaceholder".
+
+
+- **Wo umgesetzt:** _[Wie und wo wurde es gemacht? Frontend, Backend, Datenbank?]_ 
+Frontend:
+Implementierung eines <input type="file"> in der Datei books/addbook/+page.svelte mit einem reaktiven Event-Handler onchange={handleFileChange} zur Vorschaugenerierung. 
+
+Backend:
+In der Form-Action in books/addbook/+page.server.js wird die Datei aus den FormData extrahiert. xxxx
+
+Datenbank:
+In der MongoDB wird anschließend xxxxxx
+
+- **Referenz:** _[Wo wird die Erweiterung auch noch beschrieben, z.B. Screenshot oder Beschreibung in einem anderen Kapitel]_ 
+
 - **Aus Evaluation abgeleitet?:** _[Wurde diese Erweiterung als Folge eines in der Evaluation identifizierten Issues implementiert?]_  
+xxx
+
+### 4.2 Suchleiste für Titel und Autor sowohl als auch Filter für Genre und Rating
+- **Beschreibung & Nutzen:** _[Was wurde erweitert? Warum?]_
+
+- **Wo umgesetzt:** _[Wie und wo wurde es gemacht? Frontend, Backend, Datenbank?]_  
+
+- **Referenz:** _[Wo wird die Erweiterung auch noch beschrieben, z.B. Screenshot oder Beschreibung in einem anderen Kapitel]_ 
+
+- **Aus Evaluation abgeleitet?:** _[Wurde diese Erweiterung als Folge eines in der Evaluation identifizierten Issues implementiert?]_ 
+
+### 4.3 Eigene Benutzerlogins
+- **Beschreibung & Nutzen:** _[Was wurde erweitert? Warum?]_
+
+- **Wo umgesetzt:** _[Wie und wo wurde es gemacht? Frontend, Backend, Datenbank?]_  
+
+- **Referenz:** _[Wo wird die Erweiterung auch noch beschrieben, z.B. Screenshot oder Beschreibung in einem anderen Kapitel]_ 
+
+- **Aus Evaluation abgeleitet?:** _[Wurde diese Erweiterung als Folge eines in der Evaluation identifizierten Issues implementiert?]_ 
 
 > Das folgende **Beispiel** wurde bewusst kurz gehalten. Erweiterungen dürfen auch ausführlicher beschrieben werden.
 
-### 4.1 Tabelle nach Kategorien filtern
+### 4.4 Beispiel aus README.md Tabelle nach Kategorien filtern
 - **Beschreibung & Nutzen:** Tabelle X kann nach Kategorie gefiltert werden, weil User typischerweise nur an einer bestimmten Kategorie interessiert sind.  
 - **Wo umgesetzt:** 
   - **Frontend:** Tabelle mit Dropdown in Datei ...
@@ -170,14 +243,15 @@ Die folgende Deklaration ist verpflichtend und beschreibt den Einsatz von KI im 
 
 ### 6.1 KI-Tools
 - **Eingesetzte Tools**: _[z. B. Copilot, ChatGPT, Claude, lokale Modelle; Version/Variante wenn bekannt]_
-1. ChatGPT
+1. ChatGPT (Open-AI)
 2. Google Gemini
 
 - **Zweck & Umfang**: _[wie, wofür und in welchem Ausmass wurde KI eingesetzt (z. B. Textentwürfe, Codevorschläge, Tests, Refactoring); welche Teile stammen (ganz/teilweise) aus KI-Unterstützung?]_
+Künstliche Intelligenz wurde für grundlegende Textentwürfe, Konzept-Feedback und als essenzielles Werkzeug für das tiefgreifende Debugging während der Entwicklungs- und Deployment-Phase genutzt. KI-Modelle fungierten als "Senior Developer" bei der Analyse kryptischer SvelteKit/Vite Build-Fehler und gaben Hinweise zur sauberen Strukturierung der MongoDB-Verbindung.
 
 
 - **Eigene Leistung (Abgrenzung):** _[was ist eigenständig erarbeitet/überarbeitet worden?]_
-Die gesamte grundlegende Idee, die Handskizzen, die Definition der Funktionen (Genres, Filter, Navigation) sowie das digitale UI-Mockup (Figma/Design-Tool) sind eigenständig erstellte Leistungen
+Die gesamte grundlegende Idee, die Handskizzen, die Systemarchitektur (Trennung von Status-Seiten), die Definition der Funktionen (Genres, Filter) sowie das komplette UI-Design (Figma/Design-Tool) sind eigenständig erstellte Leistungen. Die robuste CRUD-Architektur, der Einsatz von Svelte 5 Runes ($state, $derived) und das Verfassen der serverseitigen +page.server.js Load-Funktionen wurden konzeptionell eigenständig entwickelt und umgesetzt.
 
 ### 6.2 Prompt-Vorgehen
 _[Überlegungen zu Prompt-Vorgehen, Qualität und Urheberrecht/Quellen. Wie wurde beim Prompting vorgegangen? Zu beschreiben ist die grundlegende Vorgehensweise. Einzelne, konkrete Prompts sollten höchstens als Beispiele aufgeführt werden. ]_
