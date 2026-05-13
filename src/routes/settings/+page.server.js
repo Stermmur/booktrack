@@ -1,11 +1,42 @@
 import { redirect, fail } from "@sveltejs/kit";
-import { getUsers } from "$lib/db.js";
+import { getUsers, getBooks } from "$lib/db.js";
 import { ObjectId } from "mongodb";
 import bcrypt from "bcryptjs";
 
 export async function load({ locals }) {
     if (!locals.user) throw redirect(303, '/?login=true');
-    return {};
+
+    try {
+        const booksCollection = await getBooks();
+        const userBooks = await booksCollection.find({ userId: locals.user.id }).toArray();
+
+        // Zähler für die Statistik
+        const readCount = userBooks.filter(book => book.status === 'read').length;
+        const currentReadCount = userBooks.filter(book => book.status === 'reading').length;
+        const watchlistCount = userBooks.filter(book => book.status === 'bookmarked').length;
+
+        // Genre-Verteilung für ALLE Bücher in der Library
+        const genreCounts = {};
+        userBooks.forEach(book => {
+            const genre = book.genre || 'Uncategorized';
+            genreCounts[genre] = (genreCounts[genre] || 0) + 1;
+        });
+
+        return {
+            readCount,
+            currentReadCount,
+            watchlistCount,
+            genreCounts
+        };
+    } catch (error) {
+        console.error("Error loading stats:", error);
+        return {
+            readCount: 0,
+            currentReadCount: 0,
+            watchlistCount: 0,
+            genreCounts: {}
+        };
+    }
 }
 
 export const actions = {
