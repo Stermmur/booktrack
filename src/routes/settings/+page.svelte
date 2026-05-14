@@ -4,24 +4,31 @@
     
     let { data, form } = $props();
     let user = $derived(data.user);
-    
-    // Stats data from the load function
     let readCount = $derived(data.readCount || 0);
     let currentReadCount = $derived(data.currentReadCount || 0);
     let watchlistCount = $derived(data.watchlistCount || 0);
     let genreCounts = $derived(data.genreCounts || {});
-    
-    // Calculate total for percentage math
     let totalGenreCount = $derived(Object.values(genreCounts).reduce((sum, count) => sum + count, 0));
 
-    // Pastel colors for the pie chart
-    const chartColors = [
-        '#FF9AA2', '#FFB7B2', '#FFDAC1', '#E2F0CB', '#B5EAD7', 
-        '#C7CEEA', '#F1CBFF', '#BDE0FE', '#A2D2FF', '#FFC8DD', 
-        '#FFAFCC', '#D4A373'
-    ];
+const chartColors = [
+    '#FFB7B2', 
+    '#FF9AA2', 
+    '#FFAFCC', 
+    '#FFC8DD', 
+    '#F1CBFF', 
+    '#BDB2FF', 
+    '#C7CEEA', 
+    '#BDE0FE', 
+    '#A2D2FF', 
+    '#A0C4FF', 
+    '#B5EAD7', 
+    '#E2F0CB', 
+    '#CCD5AE', 
+    '#FFF5BA', 
+    '#FAEDCD', 
+    '#FFDAC1' 
+];
 
-    // Calculate CSS conic-gradient for the pie chart
     let pieChartGradient = $derived((() => {
         if (totalGenreCount === 0) return 'transparent';
         let gradientSegments = [];
@@ -43,7 +50,6 @@
         return `conic-gradient(${gradientSegments.join(', ')})`;
     })());
 
-    // Modal States
     let showLogoutModal = $state(false);
     let showPasswordModal = $state(false);
     let passwordFormElement;
@@ -112,16 +118,16 @@
         
         <div class="row text-center mb-5">
             <div class="col-4 border-end">
-                <h4 class="display-6 fw-bold text-dark">{readCount}</h4>
-                <p class="text-secondary mb-0 small">Books Read</p>
+                <h4 class="display-6 fw-bold text-dark">{watchlistCount}</h4>
+                <p class="text-secondary mb-0 small">On Watchlist</p>
             </div>
             <div class="col-4 border-end">
                 <h4 class="display-6 fw-bold text-dark">{currentReadCount}</h4>
                 <p class="text-secondary mb-0 small">Current Reads</p>
             </div>
             <div class="col-4">
-                <h4 class="display-6 fw-bold text-dark">{watchlistCount}</h4>
-                <p class="text-secondary mb-0 small">On Watchlist</p>
+                <h4 class="display-6 fw-bold text-dark">{readCount}</h4>
+                <p class="text-secondary mb-0 small">Books Read</p>
             </div>
         </div>
 

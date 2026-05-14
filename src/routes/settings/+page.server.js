@@ -9,13 +9,10 @@ export async function load({ locals }) {
     try {
         const booksCollection = await getBooks();
         const userBooks = await booksCollection.find({ userId: locals.user.id }).toArray();
-
-        // Zähler für die Statistik
         const readCount = userBooks.filter(book => book.status === 'read').length;
         const currentReadCount = userBooks.filter(book => book.status === 'reading').length;
         const watchlistCount = userBooks.filter(book => book.status === 'bookmarked').length;
 
-        // Genre-Verteilung für ALLE Bücher in der Library
         const genreCounts = {};
         userBooks.forEach(book => {
             const genre = book.genre || 'Uncategorized';

@@ -32,9 +32,9 @@
             if (!finishing_date) {
                 const date = new Date();
                 const day = String(date.getDate()).padStart(2, "0");
-                const month = String(date.getMonth() + 1).padStart(2, "0"); // Monat als Zahl (01-12)
+                const month = String(date.getMonth() + 1).padStart(2, "0"); 
                 const year = date.getFullYear();
-                finishing_date = `${year}-${month}-${day}`; // Format YYYY-MM-DD für Datepicker
+                finishing_date = `${year}-${month}-${day}`; 
             }
         }
     });
