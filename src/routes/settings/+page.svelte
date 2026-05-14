@@ -11,8 +11,8 @@
     let totalGenreCount = $derived(Object.values(genreCounts).reduce((sum, count) => sum + count, 0));
 
 const chartColors = [
-    '#FFB7B2', 
-    '#FF9AA2', 
+    '#F06292', 
+    '#FF8AAB', 
     '#FFAFCC', 
     '#FFC8DD', 
     '#F1CBFF', 
@@ -23,10 +23,10 @@ const chartColors = [
     '#A0C4FF', 
     '#B5EAD7', 
     '#E2F0CB', 
-    '#CCD5AE', 
     '#FFF5BA', 
     '#FAEDCD', 
-    '#FFDAC1' 
+    '#FFDAC1',
+    '#FFADAD'
 ];
 
     let pieChartGradient = $derived((() => {
