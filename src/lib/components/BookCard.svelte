@@ -12,6 +12,7 @@
         "Literary Fiction",
         "Manga",
         "Non-Fiction",
+        "Novel",
         "Poetry",
         "Psychology",
         "Romance",
@@ -125,11 +126,12 @@
                 <div class="col-12 col-md-6">
                     <div class="book-card">
                         <a href="/books/bookinfodemo?id={book._id}">
-                            <img
-                                src={book.cover_url}
-                                alt={book.title}
-                                class="book-cover"
-                            />
+                        <img
+                            src={book.cover_url}
+                            alt={book.title}
+                            class="book-cover"
+                            loading="lazy"
+                        />
                         </a>
 
                         <div

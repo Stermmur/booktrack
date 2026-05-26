@@ -37,6 +37,7 @@
         const target = new Date(dueDateString);
         const now = new Date();
         const diff = target - now;
+
         if (diff <= 0) return "Goal reached or expired";
         const daysTotal = Math.floor(diff / (1000 * 60 * 60 * 24));
         const months = Math.floor(daysTotal / 30);
@@ -92,11 +93,11 @@
     </Modal>
 {/if}
 
-    <div>
-        <br>
-        <h1  class="fw-bold display-5 mb-4 text-center text-lg-start text-decoration-none">My Goals:</h1>
-    </div>
-    
+<div>
+    <br>
+    <h1 class="fw-bold display-5 mb-4 text-center text-lg-start text-decoration-none">My Goals:</h1>
+</div>
+ 
 <div class="container mt-5">
     {#if isSaved}
         <div class="alert alert-success text-center fw-bold mt-3 mx-auto shadow-sm" style="max-width: 500px; border-radius: 50px;">
@@ -117,7 +118,7 @@
     {/if}
 
     {#each goals as goal, index}
-        <div class="goal-card position-relative">
+        <div class="goal-card position-relative shadow-sm p-4 mb-4 border" style="border-radius: 15px; background: white; opacity: {goal.current_count >= goal.target_count ? '0.75' : '1'};">
             <button
                 type="button"
                 class="btn-delete-icon"
@@ -129,7 +130,12 @@
                 </svg>
             </button>
 
-            <h2 class="fw-bold mb-4 pe-5">{goal.title}</h2>
+            <h2 class="fw-bold mb-4 pe-5">
+                {goal.title} 
+                {#if goal.current_count >= goal.target_count}
+                    <span class="badge bg-success fs-6 ms-2 rounded-pill">Completed</span>
+                {/if}
+            </h2>
 
             <div class="row mb-4">
                 <div class="col-md-5">
@@ -169,14 +175,18 @@
                 {/if}
             </div>
 
-            <a href="/goals/editgoal?id={goal._id}" class="btn btn-light border px-4 py-1 fw-bold rounded-pill text-secondary shadow-sm">
-                Edit Goal
-            </a>
+            <div class="d-flex gap-2">
+                <a href="/goals/editgoal?id={goal._id}" class="btn btn-light border px-4 py-1 fw-bold rounded-pill text-secondary shadow-sm">
+                    Edit Goal
+                </a>
+                <form method="POST" action="?/incrementGoal" use:enhance>
+                    <input type="hidden" name="goalId" value={goal._id} />
+                    <button type="submit" class="btn btn-light border px-4 py-1 fw-bold rounded-pill text-secondary shadow-sm" disabled={goal.current_count >= goal.target_count}>
+                        +1
+                    </button>
+                </form>
+            </div>
         </div>
-
-        {#if index < goals.length - 1}
-            <hr class="my-5" style="border-color: #e0e0e0; border-width: 2px;" />
-        {/if}
     {:else}
         <p class="text-secondary fs-5">You haven't set any goals yet.</p>
     {/each}
@@ -189,10 +199,6 @@
 </div>
 
 <style>
-    .goal-card {
-        background: white;
-        border-radius: 15px;
-    }
     .circle {
         width: 25px;
         height: 25px;

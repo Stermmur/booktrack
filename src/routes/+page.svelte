@@ -5,11 +5,14 @@
     let { data, form } = $props();
     let books = $derived(data.books || []);
     let user = $derived(data.user);
+
     let isCreated = $derived(page.url.searchParams.get("success") === "true");
     let isDeleted = $derived(page.url.searchParams.get("deleted") === "true");
+
     let showLoginPrompt = $derived(
         page.url.searchParams.get("login") === "true",
     );
+
     let showAuthModal = $state(false);
     let isLoginMode = $state(true);
     let errorMessage = $state(null);
@@ -39,6 +42,16 @@
 
     let repeatCount = $derived(books.length > 0 && books.length < 6 ? 4 : 1);
     let animationSpeed = $derived(books.length * repeatCount * 4);
+
+    let carouselContainer = $state(null);
+
+    function scrollLeft() {
+        if (carouselContainer) carouselContainer.scrollBy({ left: -300, behavior: 'smooth' });
+    }
+
+    function scrollRight() {
+        if (carouselContainer) carouselContainer.scrollBy({ left: 300, behavior: 'smooth' });
+    }
 </script>
 
 <div class="container">
@@ -85,8 +98,7 @@
                 <div class="mb-3 text-start">
                     <label
                         class="form-label text-secondary fw-bold"
-                        for="username">Username</label
-                    >
+                        for="username">Username</label>
                     <input
                         type="text"
                         id="username"
@@ -99,8 +111,7 @@
                 <div class="mb-3 text-start">
                     <label
                         class="form-label text-secondary fw-bold"
-                        for="password">Password</label
-                    >
+                        for="password">Password</label>
                     <input
                         type="password"
                         id="password"
@@ -114,8 +125,7 @@
                     <div class="mb-4 text-start">
                         <label
                             class="form-label text-secondary fw-bold"
-                            for="confirmPassword">Confirm Password</label
-                        >
+                            for="confirmPassword">Confirm Password</label>
                         <input
                             type="password"
                             id="confirmPassword"
@@ -145,8 +155,7 @@
             <br />
             <button
                 class="btn btn-sm btn-outline-secondary mt-3"
-                onclick={() => (showAuthModal = false)}>Cancel</button
-            >
+                onclick={() => (showAuthModal = false)}>Cancel</button>
         </div>
     </div>
 {/if}
@@ -286,46 +295,44 @@
 {/if}
 
 {#if user && books.length > 0}
-    <div class="carousel-container mt-2">
-        <div
-            class="carousel-track"
-            style="animation-duration: {animationSpeed}s;"
-        >
-            <div class="carousel-items">
-                {#each Array(repeatCount) as _, i}
-                    {#each books as book}
-                        <a href="/books/bookinfodemo?id={book._id}">
-                            <img
-                                src={book.cover_url}
-                                alt="Book Cover"
-                                class="book-cover"
-                            />
-                        </a>
-                    {/each}
-                {/each}
-            </div>
+    <div class="carousel-wrapper mt-2">
+        <button class="btn btn-dark position-absolute top-50 start-0 translate-middle-y z-3 rounded-circle ms-3 shadow" style="width: 45px; height: 45px; font-size: 1.2rem;" onclick={scrollLeft}>❮</button>
 
-            <div class="carousel-items" aria-hidden="true">
-                {#each Array(repeatCount) as _, i}
-                    {#each books as book}
-                        <a href="/books/bookinfodemo?id={book._id}">
-                            <img
-                                src={book.cover_url}
-                                alt="Book Cover"
-                                class="book-cover"
-                            />
-                        </a>
+        <div class="carousel-container" bind:this={carouselContainer}>
+            <div
+                class="carousel-track"
+                style="animation-duration: {animationSpeed}s;"
+            >
+                <div class="carousel-items">
+                    {#each Array(repeatCount) as _, i}
+                        {#each books as book}
+                            <a href="/books/bookinfodemo?id={book._id}">
+                                <img src={book.cover_url} alt="Book Cover" class="book-cover" loading="lazy"/>
+                            </a>
+                        {/each}
                     {/each}
-                {/each}
+                </div>
+
+                <div class="carousel-items" aria-hidden="true">
+                    {#each Array(repeatCount) as _, i}
+                        {#each books as book}
+                            <a href="/books/bookinfodemo?id={book._id}">
+                                <img src={book.cover_url} alt="Book Cover" class="book-cover" loading="lazy"/>
+                            </a>
+                        {/each}
+                    {/each}
+                </div>
             </div>
         </div>
+
+        <button class="btn btn-dark position-absolute top-50 end-0 translate-middle-y z-3 rounded-circle me-3 shadow" style="width: 45px; height: 45px; font-size: 1.2rem;" onclick={scrollRight}>❯</button>
     </div>
 {/if}
 
 <div class="container text-center mt-5 mb-5">
-    <p class="fw-bold fs-5 text-dark mb-0">
+    <p class="fs-7 text-dark mb-0">
         Your personal space to track what you read, what you want to read, and
-        everything in between :)
+        everything in between ♡
     </p>
 </div>
 
@@ -369,15 +376,22 @@
         background-color: #fdf5e6;
         color: #b8860b;
     }
-    .carousel-container {
+    .carousel-wrapper {
         width: 100vw;
         position: relative;
         left: 50%;
         right: 50%;
         margin-left: -50vw;
         margin-right: -50vw;
-        overflow: hidden;
+    }
+    .carousel-container {
+        width: 100%;
+        overflow-x: auto;
+        scrollbar-width: none; 
         padding: 1rem 0;
+    }
+    .carousel-container::-webkit-scrollbar {
+        display: none; 
     }
     .carousel-track {
         display: flex;

@@ -4,7 +4,7 @@
     import BookLayout from "$lib/components/BookLayout.svelte";
 
     let { data } = $props();
-    let book = $derived(data.book);
+    let book = $state(data.book);
     let coverPreview = $state(null);
 
     const genres = [
@@ -18,6 +18,7 @@
         "Literary Fiction",
         "Manga",
         "Non-Fiction",
+        "Novel",
         "Poetry",
         "Psychology",
         "Romance",

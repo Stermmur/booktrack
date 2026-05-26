@@ -19,6 +19,7 @@
         "Literary Fiction",
         "Manga",
         "Non-Fiction",
+        "Novel",
         "Poetry",
         "Psychology",
         "Romance",

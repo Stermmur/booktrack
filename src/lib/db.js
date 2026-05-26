@@ -2,13 +2,16 @@ import { DB_URI } from '$env/static/private';
 import { MongoClient, ObjectId } from 'mongodb';
 
 const client = new MongoClient(DB_URI);
-let isConnected = false;
+let clientPromise;
 
-async function connect() {
-    if (!isConnected) {
-        await client.connect();
-        isConnected = true;
+function connect() {
+    if (!clientPromise) {
+        clientPromise = client.connect().catch(err => {
+            clientPromise = null; 
+            throw err;
+        });
     }
+    return clientPromise;
 }
 
 export async function getBooks() {

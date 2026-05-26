@@ -21,12 +21,14 @@ const chartColors = [
     '#BDE0FE', 
     '#A2D2FF', 
     '#A0C4FF', 
-    '#B5EAD7', 
+    '#B5EAD7',
+    '#D0F4DE', 
     '#E2F0CB', 
     '#FFF5BA', 
     '#FAEDCD', 
     '#FFDAC1',
-    '#FFADAD'
+    '#FFADAD',
+    '#FF73A8'
 ];
 
     let pieChartGradient = $derived((() => {
