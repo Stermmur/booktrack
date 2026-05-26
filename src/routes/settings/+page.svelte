@@ -10,26 +10,26 @@
     let genreCounts = $derived(data.genreCounts || {});
     let totalGenreCount = $derived(Object.values(genreCounts).reduce((sum, count) => sum + count, 0));
 
-const chartColors = [
-    '#F06292', 
-    '#FF8AAB', 
-    '#FFAFCC', 
-    '#FFC8DD', 
-    '#F1CBFF', 
-    '#BDB2FF', 
-    '#C7CEEA', 
-    '#BDE0FE', 
-    '#A2D2FF', 
-    '#A0C4FF', 
-    '#B5EAD7',
-    '#D0F4DE', 
-    '#E2F0CB', 
-    '#FFF5BA', 
-    '#FAEDCD', 
-    '#FFDAC1',
-    '#FFADAD',
-    '#FF73A8'
-];
+    const chartColors = [
+        '#F06292', 
+        '#FF8AAB', 
+        '#FFAFCC', 
+        '#FFC8DD', 
+        '#F1CBFF', 
+        '#BDB2FF', 
+        '#C7CEEA', 
+        '#BDE0FE', 
+        '#A2D2FF', 
+        '#A0C4FF', 
+        '#B5EAD7',
+        '#D0F4DE', 
+        '#E2F0CB', 
+        '#FFF5BA', 
+        '#FAEDCD', 
+        '#FFDAC1',
+        '#FFADAD',
+        '#FF73A8'
+    ];
 
     let pieChartGradient = $derived((() => {
         if (totalGenreCount === 0) return 'transparent';
@@ -120,16 +120,22 @@ const chartColors = [
         
         <div class="row text-center mb-5">
             <div class="col-4 border-end">
-                <h4 class="display-6 fw-bold text-dark">{watchlistCount}</h4>
-                <p class="text-secondary mb-0 small">On Watchlist</p>
+                <a href="/bookmarked" class="text-decoration-none text-dark d-inline-block stat-link">
+                    <h4 class="display-6 fw-bold mb-0">{watchlistCount}</h4>
+                </a>
+                <p class="text-secondary mt-1 mb-0 small">On my Shelf</p>
             </div>
             <div class="col-4 border-end">
-                <h4 class="display-6 fw-bold text-dark">{currentReadCount}</h4>
-                <p class="text-secondary mb-0 small">Current Reads</p>
+                <a href="/currentread" class="text-decoration-none text-dark d-inline-block stat-link">
+                    <h4 class="display-6 fw-bold mb-0">{currentReadCount}</h4>
+                </a>
+                <p class="text-secondary mt-1 mb-0 small">Current Reads</p>
             </div>
             <div class="col-4">
-                <h4 class="display-6 fw-bold text-dark">{readCount}</h4>
-                <p class="text-secondary mb-0 small">Books Read</p>
+                <a href="/myreads" class="text-decoration-none text-dark d-inline-block stat-link">
+                    <h4 class="display-6 fw-bold mb-0">{readCount}</h4>
+                </a>
+                <p class="text-secondary mt-1 mb-0 small">Books Read</p>
             </div>
         </div>
 
@@ -230,6 +236,14 @@ const chartColors = [
         height: 18px;
         border-radius: 4px;
         display: inline-block;
+    }
+ 
+    .stat-link {
+        transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .stat-link:hover {
+        transform: scale(1.15);
+        opacity: 0.7;
     }
 
     @media (max-width: 576px) {
