@@ -36,6 +36,8 @@ Link: https://booktracktest.netlify.app/
 > Sie haben von der Testleitung Zugangsdaten erhalten. 
 > Melden Sie sich damit in der App an und verschaffen Sie sich einen ersten Überblick.
 
+Login ging gut und wurde sofort gefunden, dank dem Button in der Mitte Quote: "nicht zu übersehen".
+
 ---
 
 ## Aufgabe 2
@@ -46,12 +48,16 @@ Link: https://booktracktest.netlify.app/
 >   - Rest: Frei wählbar ob und wie es ausgefüllt wird
 > Anschliessend die erfassten Daten abspeichern.
 
+Kernfunktion funktionierte ebenfalls aber beim Versuch das Rating abzufüllen funktionierte dies nicht.
+
 ---
 
 ## Aufgabe 3
 
 > Sie erinnern sich, dass Sie vor einiger Zeit in der Schule ein Buch begonnen haben zu lesen welches Sie bereits in Ihrer Library haben. 
 > Sie nehmen es aus der Library (Bookmarked) und ändern den Status in "Currentling reading".
+
+Ging gut ohne Probleme.
 
 ---
 
@@ -60,6 +66,8 @@ Link: https://booktracktest.netlify.app/
 > Nun möchten Sie auch noch ein Ziel erfassen, um Ihren Fortschritt zu tracken. 
 > Fügen Sie das Ziel hinzu, dass Sie bis ende Jahr 12 Bücher im Jahr lesen möchten. 
 
+Funktionierte ebenfalls einwandfrei.
+
 ---
 
 ## Aufgabe 5
@@ -67,16 +75,23 @@ Link: https://booktracktest.netlify.app/
 > Das Buch welches Sie in der Schule begonnen haben zu lesen, haben Sie nun fertig gelesen
 > Jetzt möchten Sie es **ohne** den Status im Editiermodus zu ändern in die "My Reads" also das Bucharchiv verschieben.
 
+Erfolgreich durchgeführt und wurde als einen positiven Button anerkannt.
+
 ---
 
 ## Aufgabe 6 (optional)
 
 > Da Sie nun ein Buch fertig gelesen haben können Sie den Status von dem Goal welches Sie gesetzt haben aktualisieren.
 
+Hat geklappt. Auch hier wurde ein Button für die Status aktualisierung genannt.
+
 ---
 
 ## Aufgabe 7 (Optional)
+
 > Zum Schluss haben Sie sich wieder umentschieden und löschen das Buch welches Sie zu Beginn erstellt haben.
+
+Erfolgreich gelöscht.
 
 ---
 
@@ -90,6 +105,7 @@ Im Anschluss an die Aufgaben besprechen wir gemeinsam:
     - Minimalistisch und schön gestaltet.
 2. Was hat Sie am meisten gestört oder verwirrt?
     - Wenn man das Goal fertig bzw abgeschlossen hat verändert sich nichts. Ein "Finished" oder ähnliches wäre vorteilhaft.
+    - Rating bleibt nicht
 3. Welche Funktion hat gefehlt, die Sie sich wünschen würden?
     - Wenn man in den "My Library Stats" auf die Zahlen klickt zb. bei "Current Reads" wäre es cool direkt auf die entsprechende Seite zu gelangen.
     - Wäre auch cool, wenn es einen Button hätte direkt mit “Status aktualisieren” , wo man dann nur die Bücheranzahl ändert. 
@@ -112,7 +128,7 @@ Datum: 20.05.2026
 │                                 │     gefehlt?                    │
 │ –   Sehr persönlich             │ –  dass sich beim beenden des   │
 │ –   Daten exportieren ist       │    Goals nichts verändert       │
-│ –   nützlich                    │                                 │
+│ –   nützlich                    │ -  Rating blieb nicht           │
 ├─────────────────────────────────┼─────────────────────────────────┤
 │ 💡  Welche neuen Ideen /        │ ?   Was war unklar? (Abfolge,   │
 │     Anforderungen kamen auf?    │     Benennungen, Wörter, Texte) │
@@ -124,7 +140,6 @@ Datum: 20.05.2026
 │    landet                       │                                 │
 │ –  Button um Goals Anzahl zu    │                                 │
 │    ändern                       │                                 │
-│     ändern                      │                                 │
 └─────────────────────────────────┴─────────────────────────────────┘
 ```
 

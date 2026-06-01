@@ -36,6 +36,8 @@ Link: https://booktracktest.netlify.app/
 > Sie haben von der Testleitung Zugangsdaten erhalten. 
 > Melden Sie sich damit in der App an und verschaffen Sie sich einen ersten Überblick.
 
+Überblick wurde verschaffen, einfach zurecht zufinden.
+
 ---
 
 ## Aufgabe 2
@@ -46,12 +48,16 @@ Link: https://booktracktest.netlify.app/
 >   - Rest: Frei wählbar ob und wie es ausgefüllt wird
 > Anschliessend die erfassten Daten abspeichern.
 
+Buch konnte erfolgreich erfasst werden.
+
 ---
 
 ## Aufgabe 3
 
 > Sie erinnern sich, dass Sie vor einiger Zeit in der Schule ein Buch begonnen haben zu lesen welches Sie bereits in Ihrer Library haben. 
 > Sie nehmen es aus der Library (Bookmarked) und ändern den Status in "Currentling reading".
+
+Status editieren ging einwandfrei.
 
 ---
 
@@ -60,6 +66,8 @@ Link: https://booktracktest.netlify.app/
 > Nun möchten Sie auch noch ein Ziel erfassen, um Ihren Fortschritt zu tracken. 
 > Fügen Sie das Ziel hinzu, dass Sie bis ende Jahr 12 Bücher im Jahr lesen möchten. 
 
+Ziel wurde ebenfalls erfolgreich erfasst.
+
 ---
 
 ## Aufgabe 5
@@ -67,16 +75,21 @@ Link: https://booktracktest.netlify.app/
 > Das Buch welches Sie in der Schule begonnen haben zu lesen, haben Sie nun fertig gelesen
 > Jetzt möchten Sie es **ohne** den Status im Editiermodus zu ändern in die "My Reads" also das Bucharchiv verschieben.
 
+Challenge wurde schnell gelöst.
+
 ---
 
 ## Aufgabe 6 (optional)
 
 > Da Sie nun ein Buch fertig gelesen haben können Sie den Status von dem Goal welches Sie gesetzt haben aktualisieren.
 
+Status aktualisieren funktionierte aber es führte zuerst zur Verwirren, dass man auf "edit" klicken muss.
 ---
 
 ## Aufgabe 7 (Optional)
 > Zum Schluss haben Sie sich wieder umentschieden und löschen das Buch welches Sie zu Beginn erstellt haben.
+
+Buch konnte ebenfalls erfolgreich gelöscht werden.
 
 ---
 
