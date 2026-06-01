@@ -441,7 +441,7 @@ Fasst die technische Realisierung zusammen.
 
         - `Modal.svelte`: Eine wiederverwendbare Overlay-Komponente für sämtliche Sicherheitsabfragen.
 
-- **Daten & Schnittstellen:** _[Wie werden Daten gespeichert, verwaltet, abgerufen?]_
+- **Daten & Schnittstellen:** 
     - **Datenbank-Anbindung:** 
         - Die Datei `lib/db.js` exportiert Funktionen (wie `getBooks`, `getGoals`, `getUsers`), die eine Singleton-Verbindung zur MongoDB herstellen. 
 
@@ -529,7 +529,7 @@ Fasst die technische Realisierung zusammen.
 
         Alle Tests konnten erfolgreich durchgeführt werden.
 
-        Die Erfolgsquote liegt bei: 100%
+        Die Erfolgsquote liegt bei: 95%
 
     - **Qualitative Findings:**
 
