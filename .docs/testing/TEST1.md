@@ -15,6 +15,8 @@ Vielen Dank, dass Sie sich Zeit nehmen, meine App zu testen!
 
 Bitte benutzen Sie folgende Zugangsdaten:
 
+Link: https://booktracktest.netlify.app/
+
 | Benutzername | Passwort          |
 | ------------ | ----------------- |
 | `admin`      | `sjeakaoevkwk29!` |
@@ -83,21 +85,23 @@ Bitte benutzen Sie folgende Zugangsdaten:
 Im Anschluss an die Aufgaben besprechen wir gemeinsam:
 
 1. Was hat Ihnen an der App am besten gefallen?
-    - Das es so persönlich ist also dass es meine eigene Library ist und niemand drauf schauen kann
-    - Ein tolles Feature fand ich auch, dass man seine Daten exportieren kann. Man weis nie wann man das einmal brauchen wird.
+    - Es war intuitiv und sah optisch schön und simpel aus. Die Webseite gab gutes Feedback. 
+    - Als Bücherrate würde ich es weiterempfehlen.
 2. Was hat Sie am meisten gestört oder verwirrt?
-    - Wenn man das Goal fertig bzw abgeschlossen hat verändert sich nichts. Ein "Finished" oder ähnliches wäre vorteilhaft.
+    - Dass es bei den Settings bunter den "Library Stats" es "On Watchlist" geheissen hat und nicht "Bookmarks" oder ähnliches hiess.
 3. Welche Funktion hat gefehlt, die Sie sich wünschen würden?
-    - Wenn man in den "My Library Stats" auf die Zahlen klickt zb. bei "Current Reads" wäre es cool direkt auf die entsprechende Seite zu gelangen.
+    - Ich fand es schade, dass man auf der Startseite nicht selber das Karousel verschieben konnte.
+    - Bei den Goals wäre ein update Button gut, da "edit goal" sonst auf die schnelle zu umständlich ist.
 4. Würden Sie die App wirklich verwenden? Warum / warum nicht?
-    - Ja auf jedenfall! 
-    - Ich werde es sehrwahrscheindlich auch selbst benutzen.
+    - Ich würde es wieder verwenden um meine Bücher, genauso zu erfassen wie ich sie auch zuhause habe (mit dem richtigen Bookcover)
+    - Es ist richtig persönlich und die goals gefallen mir ebenfalls sehr
 
 ---
 
 ## Feedback Grid
 
-Name / Code Testperson: Cindy Sommer
+Name / Code Testperson: Drin Muslija
+
 Datum: 20.05.2026
 
 ```
@@ -105,18 +109,18 @@ Datum: 20.05.2026
 │ :)  Was hat gut funktioniert?   │ :(  Was hat nicht funktioniert? │
 │     Was hat dir gefallen?       │     Was hat gestört? Was hat    │
 │                                 │     gefehlt?                    │
-│ –   Sehr persönlich             │ –  dass sich beim beenden des   │
-│ –   Daten exportieren ist       │    Goals nichts verändert       │
-│ –   nützlich                    │                                 │
+│ –  sieht schön aus              │ –  bei edit goal ein update     │
+│ –  sehr user-friendly           │    button machen, damit man     │
+│                                 │    nicht editieren muss         │
+│                                 │                                 │
 ├─────────────────────────────────┼─────────────────────────────────┤
 │ 💡  Welche neuen Ideen /        │ ?   Was war unklar? (Abfolge,   │
 │     Anforderungen kamen auf?    │     Benennungen, Wörter, Texte) │
 │                                 │     Welche Fragen kamen auf?    │
-│ –  Das wenn Goal abgeschlossen  │ –  Nichts: sehr intuitiv        │
-│    ist es auch so angezeigt wird│                                 │
-│ –  Das man beim klicken auf die │                                 │
-│    Stats man auf der Seite      │                                 │
-│    landet                       │                                 │
+│ –  Karousel auch selber swipen  │ –  kann man mehrere in Current  │
+│ –  Bei Goals ein Update Button  │    reads hinein tun ?           │
+│                                 │ –  kann man Passwort ändern?    │
+│                                 │                                 │
 └─────────────────────────────────┴─────────────────────────────────┘
 ```
 
