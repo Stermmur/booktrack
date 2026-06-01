@@ -420,7 +420,7 @@ Fasst die technische Realisierung zusammen.
 
     - **State/Stores (Svelte 5 Runes):**
 
-        - **State/Stores (Svelte 5 Runes):** Die Applikation verwendet konsequent die neuen Svelte 5 Runes zur Zustandsverwaltung.
+        Die Applikation verwendet konsequent die neuen Svelte 5 Runes zur Zustandsverwaltung.
 
         - `$state` wird für lokale UI-Zustände genutzt (z. B. Formulareingaben, Modal-Sichtbarkeit, Suchbegriffe).
 
