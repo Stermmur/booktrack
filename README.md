@@ -1,4 +1,4 @@
-# Projektdokumentation - [Book Track]
+# Projektdokumentation - [BookTrack]
 
 ## Inhaltsverzeichnis
 1. [Ausgangslage](#1-ausgangslage)
@@ -43,11 +43,11 @@
 
     - Hobby-Leser & Buchliebhaber:
     
-        Diese Zielgruppe liest regelmäßig aus Interesse und möchte Bücher bewerten, kommentieren und übersichtlich organisieren. Sie hat oft viele Buchempfehlungen, verliert jedoch schnell den Überblick, da bestehende Listen unstrukturiert und schwer durchsuchbar sind.
+        Diese Zielgruppe liest regelmässig aus Interesse und möchte Bücher bewerten, kommentieren und übersichtlich organisieren. Sie hat oft viele Buchempfehlungen, verliert jedoch schnell den Überblick, da bestehende Listen unstrukturiert und schwer durchsuchbar sind.
 
     - Zielorientierte Leser (z.B. Studierende):
     
-        Diese Nutzer lesen mit klaren Zielen und benötigen eine strukturierte Übersicht über ihren Lesefortschritt. Aufgrund eines stressigen Alltags lesen sie unregelmäßig und verlieren häufig den Überblick, weshalb sie von Fortschrittsanzeigen profitieren.
+        Diese Nutzer lesen mit klaren Zielen und benötigen eine strukturierte Übersicht über ihren Lesefortschritt. Aufgrund eines stressigen Alltags lesen sie unregelmässig und verlieren häufig den Überblick, weshalb sie von Fortschrittsanzeigen profitieren.
 
     - Eltern & dessen Kinder:
     
@@ -68,7 +68,7 @@
 
 
 ## 2. Lösungsidee
-BookTrack füllt die Lücke zwischen "Zettelwirtschaft" und "öffentlicher Community-Plattform". Es ist ein persönliches Lese-Journal mit visuellem Fokus, die motiviert und sofort für Ordnung sorgt – ohne sozialen Druck an die Nutzer, aber mit maximaler Übersicht für die eigene Bibliothek.
+BookTrack füllt die Lücke zwischen "Zettelwirtschaft" und "öffentlicher Community-Plattform". Es ist ein persönliches Lese-Journal mit visuellem Fokus, das motiviert und sofort für Ordnung sorgt – ohne sozialen Druck an die Nutzer, aber mit maximaler Übersicht für die eigene Bibliothek.
 
 - **Kernfunktionalität:**
     - Eine Web-Applikation, in der Nutzer Bücher hinzufügen, editieren, löschen und in Kategorien einteilen können (Current Read, Bookmarked & My Reads). 
@@ -81,7 +81,7 @@ BookTrack füllt die Lücke zwischen "Zettelwirtschaft" und "öffentlicher Commu
 
     - Es gibt eine Seite in der man Reading-Goals erfassen und nachverfolgen kann.
 
-    - Bücher können bewerted und kommentiert werden.
+    - Bücher können bewertet und kommentiert werden.
 
     User-Journey (ein exemplarischer Workflow):
     1. Nutzer öffnet die Web-App und loggt sich in sein Profil ein
@@ -90,9 +90,9 @@ BookTrack füllt die Lücke zwischen "Zettelwirtschaft" und "öffentlicher Commu
 
         (Required: Titel, Genre & Status. Optional: Cover, Autor, Rating, Release-Datum, Notizen und Abschluss-Datum)
 
-    4. Nutzer sieht das Buch direkt in der entsprechend Katogerisierten Seite des Status (Bookmarked, Current Read oder My Reads).
+    3. Nutzer sieht das Buch direkt in der entsprechend kategorisierten Seite des Status (Bookmarked, Current Read oder My Reads).
 
-    5. Nutzer aktualisiert seinen Fortschritt, editiert die Buchinformationen oder verschiebt das Buch zu einem anderen Status.
+    4. Nutzer aktualisiert seinen Fortschritt, editiert die Buchinformationen oder verschiebt das Buch zu einem anderen Status.
 
 - **Annahmen [Optional]:** 
     - Nutzer bevorzugen eine visuelle Navigation (Bilder) gegenüber reinen Textlisten. 
@@ -169,7 +169,7 @@ BookTrack füllt die Lücke zwischen "Zettelwirtschaft" und "öffentlicher Commu
 
      Besonders orientiert wurde sich an den Skizzen-Screens 4. und 7. bei welchem der Content (die Buchcover) im absoluten Zentrum steht, jedoch zur gleichen Zeit alle wichtigsten Informationen genannt werden (Titel, Genre, Autor).
 
-     Für das Design wurde sich für ein helles, minimalistisches Layout-Konzept basierend auf dem Bootstrap-Framework entschieden. Eine persistente obere Navigationsleiste (Navbar) ermöglicht zudem jederzeit den schnellen Kontextwechsel zwischen den verschiedenen Bibliotheksbereichen. Ausserdem wird bewusst auf ablenkende Hintergrundfarben verzichtet, um die Farben der Buchcover wirken zu lassen und in den Fokus zu transportieren. Die genauere Ausarbeitung der Designentscheide sind im Dokument im untenstehenden Absatz "End-to-Emd-Ablauf" aufzufinden.
+     Für das Design wurde sich für ein helles, minimalistisches Layout-Konzept basierend auf dem Bootstrap-Framework entschieden. Eine persistente obere Navigationsleiste (Navbar) ermöglicht zudem jederzeit den schnellen Kontextwechsel zwischen den verschiedenen Bibliotheksbereichen. Ausserdem wird bewusst auf ablenkende Hintergrundfarben verzichtet, um die Farben der Buchcover wirken zu lassen und in den Fokus zu rücken. Die genauere Ausarbeitung der Designentscheide ist im Dokument im untenstehenden Absatz "End-to-Emd-Ablauf" aufzufinden.
 
 - **End-to-End-Ablauf:** 
 
@@ -271,10 +271,10 @@ BookTrack füllt die Lücke zwischen "Zettelwirtschaft" und "öffentlicher Commu
     | Phase | Emotion | Pain Point / Bedürfnis | Lösung durch App |
     | :--- | :--- | :--- | :--- |
     | **Awareness** | Frustration | Lydia erhält ständig Buchempfehlungen, vergisst diese aber schnell wieder. Ihr analoger Notizzettel ist unübersichtlich und sie verliert den Überblick über ihren ungelesenen Bücherstapel. | Lydia liest online von BookTrack, einer simplen Web-Applikation, die als rein privates, digitales Bücherregal ohne sozialen Druck funktioniert. |
-    | **Consideration** | Skepsis | Goodreads erzeugt bei Lydia "Lese-Druck" durch die Community, und ein physisches Bullet Journal raubt ihr zu viel Zeit. Sie fragt sich, ob die neue App wirklich stressfrei ist. | Sie sieht, dass die App komplett auf soziale Vergleiche verzichtet. Die strikte, in Schwarz, Weiß und Grautönen gehaltene Benutzeroberfläche verhindert kognitive Überlastung und rückt die Buchcover in den Fokus. |
+    | **Consideration** | Skepsis | Goodreads erzeugt bei Lydia "Lese-Druck" durch die Community, und ein physisches Bullet Journal raubt ihr zu viel Zeit. Sie fragt sich, ob die neue App wirklich stressfrei ist. | Sie sieht, dass die App komplett auf soziale Vergleiche verzichtet. Die strikte, in Schwarz, Weiss und Grautönen gehaltene Benutzeroberfläche verhindert kognitive Überlastung und rückt die Buchcover in den Fokus. |
     | **App Start** *(Purchase)* | Erleichterung | Lydia sitzt im Zug und möchte schnell eine neue Empfehlung speichern, ohne sich durch komplexe Menüs klicken zu müssen. | Über die einfache horizontale Text-Navigation am oberen Bildschirmrand und den „+Add Book“-Button auf dem Homescreen erfasst sie das neue Buch in Sekundenschnelle. |
-    | **Retention** | Motivation | Lydia möchte am Ball bleiben, um angefangene Bücher wirklich zu beenden, und ihre eigenen Leseziele stressfrei verfolgen. | Unter „My Goals“ werden ihre Ziele visuell und emotional greifbar gemacht. Durch einfaches Klicken auf einen Kreis ändert dieser die Farbe, was große Ziele in verdauliche Einheiten bricht und spielerisch anspornt. |
-    | **Advocacy** | Stolz | Lydia ist überrascht, wie viele Bücher sie dieses Jahr ohne Druck beendet hat und genießt den Blick auf ihre persönliche Bibliothek. | Das "Book Archive" im Raster-Layout simuliert das befriedigende Gefühl einer gut sortierten Bücherwand und macht den Fortschritt sichtbar. Lydia empfiehlt die App an Freunde, die ebenfalls genervt vom Social-Media-Druck sind. |
+    | **Retention** | Motivation | Lydia möchte am Ball bleiben, um angefangene Bücher wirklich zu beenden, und ihre eigenen Leseziele stressfrei verfolgen. | Unter „My Goals“ werden ihre Ziele visuell und emotional greifbar gemacht. Durch einfaches Klicken auf einen Kreis ändert dieser die Farbe, was grosse Ziele in verdauliche Einheiten bricht und spielerisch anspornt. |
+    | **Advocacy** | Stolz | Lydia ist überrascht, wie viele Bücher sie dieses Jahr ohne Druck beendet hat und geniesst den Blick auf ihre persönliche Bibliothek. | Das "Book Archive" im Raster-Layout simuliert das befriedigende Gefühl einer gut sortierten Bücherwand und macht den Fortschritt sichtbar. Lydia empfiehlt die App an Freunde, die ebenfalls genervt vom Social-Media-Druck sind. |
 
 - **Mockup:** 
     - URL: https://www.figma.com/site/ZPN2YQtrXU0m0xuofxRcbk/BookTrack?node-id=0-1&t=Dn5xux7RWkdTF7Fb-1
@@ -497,7 +497,7 @@ Fasst die technische Realisierung zusammen.
 
     - Zuerst wurde moderiert das Konzept erklärt und danach durfte die Testperson unmoderiert sich durch die Aufgaben testen. 
 
-    - Von Bedeutung war das laute vor sich hin Denken der jeweiligen Testperson um Gedanken abzufangen
+    - Von Bedeutung war das laute Vor-sich-hin-Denken der jeweiligen Testperson, um deren Gedankengänge zu erfassen.
 
     - Bei Fragen durfte sich die Testperson jederzeit melden und diese wurden ebenfalls dokumentiert
 
@@ -507,7 +507,7 @@ Fasst die technische Realisierung zusammen.
 
     Getestet wurde in der Kleinklasse mit zwei unabhängigen Personen, welche meine Applikation zuvor noch nicht gesehen oder getestet haben.
 
-    Die Ausgefüllten Tests sind unter folgenden Links abrufbar:
+    Die ausgefüllten Tests sind unter folgenden Links abrufbar:
 
     [Test 1 öffnen](./.docs/testing/TEST1.md)
 
@@ -515,7 +515,7 @@ Fasst die technische Realisierung zusammen.
 
 - **Aufgaben/Szenarien:** 
     
-    Die Ausformulierten Aufgaben sind unter folgender Vorlage beschrieben:
+    Die ausformulierten Aufgaben sind unter folgender Vorlage beschrieben:
 
     [Testvorlage öffnen](./.docs/testing/TESTVORLAGE.md)
 
@@ -539,9 +539,9 @@ Fasst die technische Realisierung zusammen.
 
         3. Zudem soll bei einem beendetem Goal dies auch als solches gekenntzeichnet werden.
 
-        4. Auf der Startseite wünschen sich Nutzer das Karousel auch manuell zu schieben.
+        4. Auf der Startseite wünschen sich die Nutzer, das Karussell auch manuell bedienen zu können.
 
-        5. Nutzer fänden es eine gute Funktion, dass man in den Settings unter den "My Library Stats" mit klicken auf die Zahlen direkt zur entsprechenden Seite (Z.B. "My Reads" weitergeleitet wird). Zudem war es für Nutzer verwirrend, dass es bei den bookmarks als: "On Watchlist" notiert war und sich somit ein neues Wording gewünscht hat.
+        5. Nutzer fänden es eine gute Funktion, dass man in den Settings unter den "My Library Stats" mit klicken auf die Zahlen direkt zur entsprechenden Seite (Z.B. "My Reads" weitergeleitet wird). Zudem war es für Nutzer verwirrend, dass es bei den bookmarks als: "On Watchlist" notiert war, weshalb sie sich ein neues Wording wünschten.
 
 
 - **Zusammenfassung der Resultate:** 
@@ -567,58 +567,214 @@ Fasst die technische Realisierung zusammen.
 Dokumentiert Erweiterungen über den Mindestumfang hinaus.
 > **Hinweis:** Jede Erweiterung ist separat nach dem folgenden Schema zu beschreiben.
 
-### 4.1 Lokaler Bild-Upload für Buchcover  
-- **Beschreibung & Nutzen:** _[Was wurde erweitert? Warum?]_
- Anstatt Nutzer zu zwingen, externe Bild-URLs für Buchcover im Internet suchen und kopieren zu müssen, bietet die App die Möglichkeit, direkt eigene Bilder (z.B. vom Smartphone oder PC) hochzuladen. Im Frontend gibt es dafür eine interaktive Vorschau, die über URL.createObjectURL sofort das gewählte Bild im Platzhalter anzeigt. Die Bilder werden nicht lokal sondern in der MongoDB gespeichert. Sofern kein Cover hinzugefügt wird gibt es ein Platzhalterbild namens "The Spaceholder".
+### 4.1 Eigene Benutzerlogins (Custom Authentication)
+- **Beschreibung & Nutzen:** 
 
+    Um das im Konzept definierte Ziel eines "privaten Raums" ohne sozialen Druck zu erfüllen, verfügt die App über ein geschlossenes Login-System. Jeder Nutzer sieht und verwaltet ausschliesslich seine eigene, geschützte Bibliothek.
 
-- **Wo umgesetzt:** _[Wie und wo wurde es gemacht? Frontend, Backend, Datenbank?]_
-
-    - Frontend:
-
-        Implementierung eines <input type="file"> in der Datei books/addbook/+page.svelte mit einem reaktiven Event-Handler onchange={handleFileChange} zur Vorschaugenerierung. 
-
-    - Backend:
-
-        In der Form-Action in books/addbook/+page.server.js wird die Datei aus den FormData extrahiert. xxxx
-
-    - Datenbank:
-
-        In der MongoDB wird anschließend xxxxxx
-
-- **Referenz:** _[Wo wird die Erweiterung auch noch beschrieben, z.B. Screenshot oder Beschreibung in einem anderen Kapitel]_ 
-
-- **Aus Evaluation abgeleitet?:** _[Wurde diese Erweiterung als Folge eines in der Evaluation identifizierten Issues implementiert?]_  
-xxx
-
-### 4.2 Suchleiste für Titel und Autor sowohl als auch Filter für Genre und Rating
-- **Beschreibung & Nutzen:** _[Was wurde erweitert? Warum?]_
-
-- **Wo umgesetzt:** _[Wie und wo wurde es gemacht? Frontend, Backend, Datenbank?]_  
-
-- **Referenz:** _[Wo wird die Erweiterung auch noch beschrieben, z.B. Screenshot oder Beschreibung in einem anderen Kapitel]_ 
-
-- **Aus Evaluation abgeleitet?:** _[Wurde diese Erweiterung als Folge eines in der Evaluation identifizierten Issues implementiert?]_ 
-
-### 4.3 Eigene Benutzerlogins
-- **Beschreibung & Nutzen:** _[Was wurde erweitert? Warum?]_
-
-- **Wo umgesetzt:** _[Wie und wo wurde es gemacht? Frontend, Backend, Datenbank?]_  
-
-- **Referenz:** _[Wo wird die Erweiterung auch noch beschrieben, z.B. Screenshot oder Beschreibung in einem anderen Kapitel]_ 
-
-- **Aus Evaluation abgeleitet?:** _[Wurde diese Erweiterung als Folge eines in der Evaluation identifizierten Issues implementiert?]_ 
-
-> Das folgende **Beispiel** wurde bewusst kurz gehalten. Erweiterungen dürfen auch ausführlicher beschrieben werden.
-
-### 4.4 Beispiel aus README.md Tabelle nach Kategorien filtern
-- **Beschreibung & Nutzen:** Tabelle X kann nach Kategorie gefiltert werden, weil User typischerweise nur an einer bestimmten Kategorie interessiert sind.  
 - **Wo umgesetzt:** 
-  - **Frontend:** Tabelle mit Dropdown in Datei ...
-  - **Backend:** Form Action ... in Datei ...
-  - **Datenbank:** MongoDB-Query in Datei ...
-- **Referenz:** Screenshot in Kap. x.y
-- **Aus Evaluation abgeleitet?:** Ja, Issue x.y
+    - **Frontend:** Login- und Registrierungs-Maske auf dem ausgeloggten Homescreen in der Datei `src/routes/+page.svelte`.
+    - **Backend:** Die globale Session-Prüfung und das Sperren von Routen erfolgt in der `src/hooks.server.js`. Die eigentliche Form-Action für den Login (inkl. `bcryptjs`) liegt in der `src/routes/+page.server.js`.
+    - **Datenbank:** Die Nutzerdatenbank ist als separate `users`-Collection in der MongoDB abgebildet (`src/lib/db.js`).
+
+- **Referenz:** 
+
+    Kapitel 3.4.2 (Umsetzung Technik - Struktur & Komponenten).
+
+- **Aus Evaluation abgeleitet?:** 
+    
+    Nein, dies war eine fundamentale Grundanforderung welches sich aus dem Lösungskonzept herauskristallisierte.
+
+
+### 4.2 Statusbasierte Seiten-Kategorisierung
+- **Beschreibung & Nutzen:** 
+    
+    Statt alle Bücher unübersichtlich in einer einzigen langen Liste abzubilden, werden die Bücher je nach Lese-Fortschritt vollautomatisch in separate Bereiche sortiert ("Bookmarked" / "Current Read" / "My Reads"). Dies sorgt für eine sofortige visuelle Ordnung.
+
+- **Wo umgesetzt:** 
+    - **Frontend:** Dynamische Navigation über `src/routes/+layout.svelte` zu den jeweiligen Ansichten `src/routes/bookmarked/+page.svelte`, `src/routes/currentread/+page.svelte` und `src/routes/myreads/+page.svelte`.
+    - **Backend:** Die `load`-Funktionen in den korrespondierenden serverseitigen Dateien (z. B. `src/routes/myreads/+page.server.js`) filtern die MongoDB-Abfrage direkt nach dem passenden Status.
+
+- **Referenz:** 
+    
+    Kapitel 3.4.1 (Informationsarchitektur).
+
+- **Aus Evaluation abgeleitet?:** 
+    
+    Nein. Die Aufteilung der Bibliothek in die drei festen Kategorien "Bookmarked", "Current Read" und "My Reads" war bereits von Beginn an ein zentraler Bestandteil des Grundkonzepts (siehe Kapitel 2: Lösungsidee), um das Chaos herkömmlicher Listen aufzulösen. 
+
+
+### 4.3 Buch-Karussell auf dem Homescreen
+- **Beschreibung & Nutzen:** 
+    
+    Sobald ein Nutzer eingeloggt ist, wird auf dem Homescreen nicht nur ein langweiliges Menü angezeigt, sondern alle erfassten Bücher der persönlichen Bibliothek in einem ästhetischen, scrollbaren Karussell präsentiert. Dies wertet das Erlebnis optisch stark auf. Sofern noch keine Bücher erfasst sind, wird das Karussel auch nicht angezeigt.
+
+- **Wo umgesetzt:** 
+    - **Frontend:** Implementierung eines responsiven Bootstrap-Carousels in der Datei `src/routes/+page.svelte` (wird nur gerendert, wenn der User eingeloggt ist).
+    - **Backend:** Bereitstellung aller Buchdaten über die `load`-Funktion in der `src/routes/+page.server.js`.
+
+- **Referenz:** 
+    
+    Kapitel 3.4.1 (User Interface Design).
+
+- **Aus Evaluation abgeleitet?:** 
+
+    Teilweise. Das Karussell existierte, aber die manuellen Pfeile zum Steuern wurden als expliziter Wunsch im Usability-Test (Kapitel 3.5) identifiziert und im Anschluss implementiert.
+
+
+### 4.4 Bild-Upload für Buchcover & Platzhalter
+- **Beschreibung & Nutzen:** 
+
+    Anstatt Bilder lokal zu speichern, werden diese direkt in der MongoDB gespeichert. Die einzigen Ausnahmen bilden hier die Gemini-generieten Buchcover welche sich unter `src/static/covers` befinden. Wird kein Cover ausgewählt, setzt die Applikation automatisch das eigens erstellte Asset "The Spaceholder" als Platzhalter ein, welches unter `src/static/coverplaceholder/gemini_generated_spaceholder.png` hinterlegt ist.
+
+- **Wo umgesetzt:** 
+    - **Frontend:** `<input type="file">` mit einer interaktiven Live-Vorschau in der Datei `src/routes/books/addbook/+page.svelte`.
+    - **Backend:** Die Form-Action in `src/routes/books/addbook/+page.server.js` extrahiert die hochgeladene Datei aus den FormData und konvertiert sie in einen Base64-String.
+    - **Datenbank:** Das Bild wird ressourcenschonend für diesen Prototyp als Text-String (Base64) direkt im MongoDB-Buchdokument gespeichert.
+
+- **Referenz:** 
+    
+    Kapitel 3.4.2 (Besondere Entscheidungen).
+
+- **Aus Evaluation abgeleitet?:** 
+    
+   Nein. Diese Funktion (und insbesondere die technische Entscheidung, Bilder in der Datenbank zu speichern) wurde proaktiv umgesetzt, um einen kritischen Architektur-Fehler in der Live-Umgebung zu verhindern. Da die Applikation auf Netlify (Serverless Functions) gehostet wird, ist das lokale Dateisystem flüchtig. Hätte man die Uploads lokal im Projektordner gespeichert, wären sämtliche Buchcover der Nutzer nach jedem Deployment oder Server-Standby unwiderruflich gelöscht worden. Die direkte Speicherung in der MongoDB verhindert diesen kompletten Datenverlust zuverlässig.
+
+
+### 4.5 Live-Suchleiste & Filter (Titel, Autor, Genre, Rating)
+- **Beschreibung & Nutzen:** 
+
+    In den Bibliotheks-Ansichten (wie "Bookmarked" und "My Reads") können Nutzer ihre wachsende Sammlung blitzschnell und präzise eingrenzen, ohne ewig scrollen zu müssen. Dies kann man entweder durch die Suchfunktion nach Titel und/oder Autor sowohl als auch über die Filterfunktionen nach Genre und Rating.
+
+- **Wo umgesetzt:** 
+    - **Frontend:** Die komponentenbasierte Filterlogik liegt vollständig in `src/lib/components/BookCard.svelte`. Hier werden Svelte 5 Runes (`$state` für Eingaben, `$derived` für die gefilterte Liste) eingesetzt.
+    - **Backend:** Die Rohdaten werden einmalig serverseitig geladen (z. B. via `src/routes/myreads/+page.server.js`); die gesamte Filter-Berechnung läuft performant im Client ab.
+
+- **Referenz:** 
+    
+    Kapitel 3.4.2 (State/Stores).
+
+- **Aus Evaluation abgeleitet?:** 
+
+    Nein. Die Filter- und Suchfunktion wurde bereits in der Planungsphase (Kapitel 2) als Kernanforderung definiert.
+
+
+### 4.6 Ziele tracken & als abgeschlossen kennzeichnen
+- **Beschreibung & Nutzen:** 
+
+    Neben der reinen Buchverwaltung lassen sich unter dem Reiter "Goals" auch eigene Ziele erfassen (Gamification). Nutzer können den Fortschritt abhaken. Um das Erfolgserlebnis zu verstärken, werden Ziele, die zu 100% erreicht sind, visuell als "Completed" hervorgehoben.
+
+- **Wo umgesetzt:** 
+    - **Frontend:** Übersicht in `src/routes/goals/+page.svelte` sowie das Formular zur Erfassung in `src/lib/components/GoalForm.svelte`. Die dynamischen Status-Badges reagieren sofort auf Klicks.
+    - **Backend:** Serverseitige Verarbeitung der Fortschritte (z. B. `?/incrementGoal`) in `src/routes/goals/+page.server.js`.
+    - **Datenbank:** Gespeichert in einer eigenen `goals`-Collection via `src/lib/db.js`.
+
+- **Referenz:** 
+
+    Kapitel 3.5 (Abgeleitete Verbesserungen).
+
+- **Aus Evaluation abgeleitet?:** 
+    
+    Ja (teilweise). Die Funktionalität, Leseziele zu erfassen, war im Konzept verankert. Das explizite, motivierende "Completed"-Badge zur besseren Gamification-Rückmeldung bei Abschluss eines Ziels entstammt jedoch direkt dem Feedback aus dem Usability-Test.
+
+
+### 4.7 Persönliche Lese-Statistiken (Pie-Chart Dashboard)
+- **Beschreibung & Nutzen:** 
+    
+    Die Settings-Seite fungiert nicht nur als Einstellungsmenü, sondern als Dashboard. Nutzer sehen auf einen Blick, wie viele Bücher gelesen wurden und erhalten ihre Genre-Verteilung visuell als Kuchendiagramm (Pie-Chart) aufbereitet.
+
+- **Wo umgesetzt:** 
+    - **Frontend:** Dynamisches Rendern des Pie-Charts im HTML-Markup der `src/routes/settings/+page.svelte`.
+    - **Backend:** Die `load`-Funktion in `src/routes/settings/+page.server.js` ruft die Bücher ab und aggregiert serverseitig die Häufigkeit der gelesenen Genres.
+
+- **Referenz:** 
+    
+    Kapitel 3.4.1 (User Interface Design - Settings).
+
+- **Aus Evaluation abgeleitet?:** 
+    
+    Teilweise. Das Kuchendiagramm selbst wurde im Voraus entwickelt. Die erweiterte Funktionalität, dass die numerischen Statistik-Werte klickbar sind und den Nutzer direkt zur jeweiligen Bibliothek (z. B. "My Reads") weiterleiten, war jedoch ein konkretes Finding aus der Evaluation.
+
+
+### 4.8 Sichere Passwortänderung
+- **Beschreibung & Nutzen:** 
+    
+    Nutzer haben jederzeit die volle Kontrolle über ihre Account-Sicherheit und können in den Settings ein neues Passwort definieren.
+
+- **Wo umgesetzt:** 
+    - **Frontend:** Eingabeformular (Altes Passwort, Neues Passwort) unter "Change Password" in `src/routes/settings/+page.svelte`.
+    - **Backend:** Die Action `?/updatePassword` in `src/routes/settings/+page.server.js` prüft das alte Passwort gegen den hinterlegten `bcryptjs`-Hash und verschlüsselt anschliessend das neue Passwort.
+
+- **Referenz:** 
+
+    Kapitel 3.4.1 (User Interface Design - Settings).
+
+- **Aus Evaluation abgeleitet?:** 
+    
+    Nein. Es wurde zwar als Gedanke im dem Test erwähnt, aber dies war bereits eine logische sicherheitstechnische Konsequenz aus der Implementierung des Custom-Login-Systems (4.1) und wurde standardmässig integriert.
+
+
+### 4.9 Daten-Export (CSV)
+- **Beschreibung & Nutzen:** 
+    
+    Um keinen sogenannten "Vendor Lock-in" zu erzeugen, können Nutzer über die Settings jederzeit ein lokales Backup (CSV-Datei) ihrer gesamten Buch-Historie herunterladen.
+
+- **Wo umgesetzt:** 
+    - **Frontend:** Download-Button im Bereich "Data Management" in der Datei `src/routes/settings/+page.svelte`.
+    - **Backend:** Eigene API-Route in der Datei `src/routes/settings/export/+server.js`. Diese exportiert eine GET-Methode, die MongoDB-JSON-Daten in eine saubere CSV-Struktur formatiert und als automatischen Download-Stream (`Content-Type: text/csv`) an den Client sendet.
+
+- **Referenz:** 
+    
+    Kapitel 3.4.2 (Routen).
+
+- **Aus Evaluation abgeleitet?:** 
+    
+    Nein. Diese Funktion wurde als zusätzliches Qualitätsmerkmal (Quality of Life) implementiert, um den Nutzern die volle Hoheit über ihre eigenen Daten zu überlassen.
+
+
+### 4.10 Umfassendes User-Feedback & Sicherheitsabfragen (Modals)
+- **Beschreibung & Nutzen:** 
+
+    Um Frustration durch versehentliche Klicks zu vermeiden und dem Nutzer stets das Gefühl von Kontrolle zu geben, bietet die Applikation kontinuierliches visuelles Feedback. Dies reicht von interaktiven Status-Updates (Gamification-Elemente, die sich sofort einfärben) bis hin zu klaren Erfolgsmeldungen und sauberen Weiterleitungen nach dem Speichern. 
+
+    Destruktive oder finale Aktionen (wie das endgültige Löschen eines Buches aus der Datenbank, das Beenden eines Leseziels oder der Logout) werden zudem niemals sofort ausgeführt. Sie erfordern zwingend eine doppelte Bestätigung über ein modales Pop-up (Sicherheitsabfrage), um irreversible Fehler präventiv zu vermeiden (Error Prevention). 
+
+- **Wo umgesetzt:** 
+    - **Frontend (Modals):** Implementierung einer universell wiederverwendbaren Overlay-Komponente in `src/lib/components/Modal.svelte`. Diese wird über den lokalen Svelte-State (`$state`) auf folgenden Seiten getriggert:
+        - **Buch löschen:** In der Detail- und Editieransicht (z. B. `src/routes/books/bookinfodemo/+page.svelte` und `editbook`).
+        - **Buch beenden ("Finished"):** Beim Verschieben eines Buches ins Archiv (z. B. in `src/routes/currentread/+page.svelte`).
+        - **Ziel löschen:** Beim Entfernen eines Leseziels in `src/routes/goals/editgoal/[id]/+page.svelte`.
+        - **Logout:** Beim Abmelden des Nutzers in den Settings (`src/routes/settings/+page.svelte`).
+    - **Frontend (User Feedback):** 
+        - **Echtzeit-Feedback:** Über Svelte 5 Runes aktualisieren sich interaktive UI-Elemente wie die Check-Kreise bei den Lesezielen (`src/routes/goals/+page.svelte`) sofort nach dem Klick visuell.
+        - **Erfolgs-Feedback:** Nach dem Hinzufügen oder Bearbeiten eines Buches (z. B. in `src/routes/books/addbook/+page.svelte`) erhält der Nutzer direktes Feedback durch URL-Status-Parameter oder eine unmittelbare visuelle Umleitung in die aktualisierte Bibliothek.
+    - **Backend:** Das Frontend blockiert den jeweiligen Request so lange, bis der Nutzer im Modal bestätigt. Erst nach der expliziten Bestätigung wird die eigentliche serverseitige Form-Action (z. B. `?/deleteBook` oder `?/logout`) ausgeführt und die Datenbank aktualisiert.
+
+- **Referenz:** 
+    
+    Kapitel 3.4.1 (User Interface Design - Designentscheidungen).
+
+- **Aus Evaluation abgeleitet?:** 
+    
+    Nein. Das kontinuierliche Feedback und die doppelten Sicherheitsabfragen wurden als Best Practice der User Experience (UX) bereits im Vorfeld in das Interaktionsdesign integriert, um Fehler präventiv zu vermeiden und das Vertrauen des Nutzers in die Applikation zu stärken.
+
+### 4.11 KI-generiertes Favicon & Profil-Logo
+- **Beschreibung & Nutzen:** 
+    
+    Um der Applikation ohne grossen grafischen Aufwand eine individuelle und professionelle Identität (Branding) zu verleihen, wurde mit Google Gemini ein eigenes Favicon generiert. Dieses grafische Asset wird clever wiederverwendet: Es dient nicht nur als klassisches Browser-Icon in den Tabs, sondern fungiert gleichzeitig als visuelles Profil-Logo (Avatar) im Settings-Dashboard des Nutzers.
+
+- **Wo umgesetzt:** 
+    - **Assets & HTML:** Das Bild wurde unter `src/lib/assets/favicon.png` im Projekt abgelegt. Die globale Einbindung für den Webbrowser erfolgt im `<head>`-Bereich der Einstiegsdatei `src/app.html`.
+    - **Frontend (Settings):** Auf der Einstellungsseite (`src/routes/settings/+page.svelte`) wird das Favicon aktiv im Profil-Bereich als Avatar (`<img src="/favicon.png" alt="User Icon" class="profile-avatar shadow-sm">`) in das Layout eingebunden.
+
+- **Referenz:** 
+    
+    Kapitel 6 (KI-Deklaration)
+
+- **Aus Evaluation abgeleitet?:** 
+    
+    Nein. Die Erstellung eines eigenen Logos und dessen Platzierung als Profil-Avatar war eine persönliche "just for fun" Design-Entscheidung während der Umsetzung.
+
 
 ## 5. Projektorganisation [Optional]
 - **Repository & Struktur:**  
@@ -644,7 +800,7 @@ Die folgende Deklaration ist verpflichtend und beschreibt den Einsatz von KI im 
 
 ### 6.1 KI-Tools
 - **Eingesetzte Tools**: 
-    1. Google Gemini Pro¨
+    1. Google Gemini Pro
 
     2. ChatGPT (Open-AI)
 
@@ -652,7 +808,7 @@ Die folgende Deklaration ist verpflichtend und beschreibt den Einsatz von KI im 
 
 - **Zweck & Umfang**:
 
-    Künstliche Intelligenz wurde für grundlegende Textentwürfe, Konzept-Feedback und als essenzielles Werkzeug für das tiefgreifende Debugging während der Entwicklungs- und Deployment-Phase genutzt. KI-Modelle fungierten als "Senior Developer" bei der Code-Implementierung, der Analyse kryptischer SvelteKit/Vite Build-Fehler und gaben Hinweise zur sauberen Strukturierung der MongoDB-Verbindung. Gemini generierte in diesem Zusammenhang auf Basis klarer Anforderungen grosse Teile des Codes, welches jedoch stets geprüft und bei Bedarf angepasst wurde.
+    Künstliche Intelligenz wurde für grundlegende Textentwürfe, Konzept-Feedback und als essenzielles Werkzeug für das tiefgreifende Debugging während der Entwicklungs- und Deployment-Phase genutzt. KI-Modelle fungierten als "Senior Developer" bei der Code-Implementierung, der Analyse kryptischer SvelteKit/Vite Build-Fehler und gaben Hinweise zur sauberen Strukturierung der MongoDB-Verbindung. Gemini generierte in diesem Zusammenhang auf Basis klarer Anforderungen grosse Teile des Codes, welcher jedoch stets geprüft und bei Bedarf angepasst wurde.
 
 
 - **Eigene Leistung (Abgrenzung):** 
@@ -664,10 +820,10 @@ Die folgende Deklaration ist verpflichtend und beschreibt den Einsatz von KI im 
 - **Urheberrecht/Quellen:**
 
     Es wurde kein fertiger Code aus Drittquellen übernommen. 
-    Da das Projekt zudem für den Privaten Gebrauch im engsten Umkreis genutz wird, gibt es in der Schweiz keine Urheberrechtlichen Probleme, wenn User Buch-Cover aus dem Internet für ihre persönliche Library verwenden. 
+    Da das Projekt zudem für den privaten Gebrauch im engsten Umkreis genutzt wird, gibt es in der Schweiz keine urheberrechtlichen Probleme, wenn User Buch-Cover aus dem Internet für ihre persönliche Library verwenden. 
     Für das "admin"-Login wurde explizit mit Gemini generierten Daten und Coverbilder gearbeitet.
 
-- **Promting-Vorgehen:**
+- **Prompting-Vorgehen:**
 
     Es wurde ein stark iterativer und dialogorientierter Prompting-Ansatz verfolgt. Anstatt ganze Features generieren zu lassen, wurde die KI spezifisch für Problemlösungen eingesetzt. 
 
@@ -681,7 +837,7 @@ Die folgende Deklaration ist verpflichtend und beschreibt den Einsatz von KI im 
 
     4. Generierten Code lesen und in den entsprechenden Abschnitt einfügen
 
-    5. Bei Bedarf promt verfeinern bzw. Anforderung genauer deklarieren und somit itertiv zur Lösung gelangen
+    5. Bei Bedarf Promt verfeinern bzw. Anforderung genauer deklarieren und somit iterativ zur Lösung gelangen
 
 - **Beispiel:**
 
@@ -695,11 +851,11 @@ Die folgende Deklaration ist verpflichtend und beschreibt den Einsatz von KI im 
 
 - **Grenzen:**
 
-    Die größte Erkenntnis war jedoch, dass die KI einem nicht die konzeptionellen architektonischen Entscheidungen abnimmt. Sie fungiert hervorragend als Strukturierungshilfe für bereits vorhandene Gedanken und als forensisches Tool zur Fehlersuche, stößt aber an ihre Grenzen, wenn sie den Gesamtzusammenhang eines hochgeladenen Projekt-Baums verlieren würde. Eine saubere, selbst erarbeitete Code-Struktur (wie die Aufteilung in Layouts und Komponenten) bleibt unerlässlich, damit die KI überhaupt effektiv helfen kann.
+    Die grösste Erkenntnis war jedoch, dass die KI einem nicht die konzeptionellen architektonischen Entscheidungen abnimmt. Sie fungiert hervorragend als Strukturierungshilfe für bereits vorhandene Gedanken und als forensisches Tool zur Fehlersuche, stösst aber an ihre Grenzen, wenn sie den Gesamtzusammenhang eines hochgeladenen Projekt-Baums verlieren würde. Eine saubere, selbst erarbeitete Code-Struktur (wie die Aufteilung in Layouts und Komponenten) bleibt unerlässlich, damit die KI überhaupt effektiv helfen kann.
 
 - Qualitätssicherung:
 
-    KI generierten Code kann und soll nicht blind übernommen werden sondern muss stets überprüft und validiert werden.
+    KI-generierter Code kann und darf nicht blind übernommen werden sondern muss stets überprüft und validiert werden.
 
 
 ## 7. Anhang
@@ -717,7 +873,7 @@ Dieses Kapitel enthält weiterführende Links und Dokumente, die für das Verst�
     - [Bcrypt.js (NPM)](https://www.npmjs.com/package/bcryptjs)
 
 - **Bildmaterial:**
-    - Sämtliche verwendeten Buchcover in den Test-Accounts sind Gemini generierte bilder. Da die Applikation für den reinen Eigengebrauch (bzw. für Studienzwecke und den engsten Umkreis) entwickelt wurde und keine Monetarisierung stattfindet, greift die Schrankenbestimmung für den privaten Gebrauch (Art. 19 URG Schweiz).
+    - Sämtliche verwendeten Buchcover in den Test-Accounts sind Gemini-generierte bilder. Da die Applikation für den reinen Eigengebrauch (bzw. für Studienzwecke und den engsten Umkreis) entwickelt wurde und keine Monetarisierung stattfindet, greift die Schrankenbestimmung für den privaten Gebrauch (Art. 19 URG Schweiz).
 
     - Als Platzhalter-Bild (sofern kein Cover hochgeladen wird) wurde ein neutrales, Gemini generiertes Bild namens "The Spaceholder" verwendet.
 
