@@ -353,7 +353,7 @@ Beschreibt die Gestaltung und Interaktion.
     - **Sicherheits-Modals:** 
         - Destruktive Aktionen (Buch löschen, Ziel löschen) oder finale Aktionen (Buch als beendet markieren, Logout) lösen stets ein modales Pop-up (`Modal.svelte`) aus. Dies verhindert versehentliche Klicks und Frustration.
 
-    Weitere Designentscheidungen sind im Dokument welches unter Kapitel 3.3 Abschnitt "End-to-End-Ablauf" beschrieben.
+    Weitere Designentscheidungen sind im Dokument unter Kapitel 3.3 Abschnitt "End-to-End-Ablauf" beschrieben.
 
 
 #### 3.4.2. Umsetzung (Technik)
