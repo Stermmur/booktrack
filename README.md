@@ -529,7 +529,7 @@ Fasst die technische Realisierung zusammen.
 
         Alle Tests konnten erfolgreich durchgeführt werden.
 
-        Die Erfolgsquote liegt bei: 95%
+        Die Erfolgsquote liegt bei: 100%
 
     - **Qualitative Findings:**
 
